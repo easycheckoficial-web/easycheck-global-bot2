@@ -1,0 +1,176 @@
+stores:
+  - code: AUCHAN
+    name: "Auchan"
+    country: "LU"
+    base_url: "https://auchan.lu"
+    sources:
+      - type: category
+        url: "https://auchan.lu/2214-epicerie-salee"
+      - type: category
+        url: "https://auchan.lu/1579-epicerie-sucree"
+      - type: category
+        url: "https://auchan.lu/2040-surgeles"
+      - type: category
+        url: "https://auchan.lu/2489-boissons"
+      - type: offers_page
+        url: "https://auchan.lu/catalogue"
+    selectors:
+      card: ".product, .product-card, li.product-item"
+      title: ".product-title, .product-name, h2, h3"
+      brand: ".brand, .product-brand"
+      qty: ".size, .quantity, .product-quantity"
+      price: ".price, .product-price, .current-price"
+      promo: ".promo, .badge-promo, .discount"
+      link: "a[href]"
+      image: "img"
+      ean: ""
+
+  - code: LUXCADDY
+    name: "Luxcaddy"
+    country: "LU"
+    base_url: "https://luxcaddy.lu"
+    sources:
+      - type: category
+        url: "https://luxcaddy.lu/en/categories/5762/groceries"
+      - type: category
+        url: "https://luxcaddy.lu/en/categories/397/vegetables"
+      - type: category
+        url: "https://luxcaddy.lu/en/categories/129/prepared-dishes-canned-food"
+    selectors:
+      card: ".product, .product-item, .grid__item, article"
+      title: ".product__title, .product-title, h3, h2, .title"
+      brand: ""
+      qty: ".product__unit, .size, .quantity, .subtitle"
+      price: ".price, .product__price, .money, .amount"
+      promo: ".badge, .sale, .promo"
+      link: "a[href]"
+      image: "img"
+      ean: ""
+
+  - code: ALDI
+    name: "ALDI"
+    country: "LU"
+    base_url: "https://www.aldi.lu"
+    sources:
+      - type: category
+        url: "https://www.aldi.lu/fr/produits.html"
+      - type: offers_page
+        url: "https://www.aldi.lu/fr/nos-offres.html"
+    selectors:
+      card: ".product, .product-card, article, li"
+      title: "h3, .title, .product-title"
+      brand: ""
+      qty: ".size, .quantity, .subtitle"
+      price: ".price, .amount"
+      promo: ".badge, .promo, .discount"
+      link: "a[href]"
+      image: "img"
+      ean: ""
+
+  - code: CACTUS
+    name: "Cactus"
+    country: "LU"
+    base_url: "https://www.cactus.lu"
+    sources:
+      - type: offers_page
+        url: "https://www.cactus.lu/fr/catalogues-et-promotions"
+    selectors:
+      card: ".views-row, .product, .product-card, li, article"
+      title: "h3, .product-title, .title"
+      brand: ""
+      qty: ".size, .quantity, .subtitle"
+      price: ".price, .field--name-field-price, .amount"
+      promo: ".promotion, .promo, .badge"
+      link: "a[href]"
+      image: "img"
+      ean: ""
+
+  - code: LIDL
+    name: "Lidl"
+    country: "LU"
+    base_url: "https://www.lidl.lu"
+    sources:
+      - type: offers_page
+        url: "https://www.lidl.lu/c/folders/s10019808"
+    selectors:
+      card: ".teaser, .product-tile, article"
+      title: ".title, h3, h2"
+      brand: ""
+      qty: ".subline, .subtitle, .size"
+      price: ".price, .price__amount, .pricebox__price"
+      promo: ".badge, .promo, .discount"
+      link: "a[href]"
+      image: "img"
+      ean: ""
+
+  - code: DELHAIZE
+    name: "Delhaize"
+    country: "LU"
+    base_url: "https://www.delhaize.lu"
+    sources:
+      - type: offers_page
+        url: "https://www.delhaize.lu/fr/promos-de-la-semaine"
+    selectors:
+      card: ".product, .promo-card, li, article"
+      title: ".product-title, h3, h2, .title"
+      brand: ".brand"
+      qty: ".size, .quantity"
+      price: ".price, .current-price, .amount"
+      promo: ".promo, .badge, .discount"
+      link: "a[href]"
+      image: "img"
+      ean: ""
+
+  - code: COLRUYT
+    name: "Colruyt"
+    country: "LU"
+    base_url: "https://www.colruyt.lu"
+    sources:
+      - type: category
+        url: "https://www.colruyt.lu/fr-lu/produits?page=1"
+    selectors:
+      card: "article, .product, li"
+      title: "h3, .title, .product-title"
+      brand: ".brand, .product-brand"
+      qty: ".size, .quantity"
+      price: ".price, .amount"
+      promo: ".promo, .badge"
+      link: "a[href]"
+      image: "img"
+      ean: ""
+
+  - code: CARREFOUR_EXPRESS
+    name: "Carrefour Express"
+    country: "LU"
+    base_url: "https://magasins.carrefour.be"
+    sources: []   # sem catálogo/promos LU públicas
+
+  - code: MONOPRIX
+    name: "Monoprix"
+    country: "LU"
+    base_url: "https://www.monoprix.lu"
+    sources:
+      - type: category
+        url: "https://www.monoprix.lu/"
+    selectors:
+      card: ".product, .product-card, li, article"
+      title: ".product-title, h3, h2, .title"
+      brand: ".brand, .product-brand"
+      qty: ".size, .quantity, .subtitle"
+      price: ".price, .current-price, .amount"
+      promo: ".promo, .badge, .discount"
+      link: "a[href]"
+      image: "img"
+      ean: ""
+
+  - code: NATURATA
+    name: "Naturata"
+    country: "LU"
+    base_url: "https://www.naturata.lu"
+    sources: []
+
+  - code: ALAVITA
+    name: "Alavita"
+    country: "LU"
+    base_url: "https://www.alavita.lu"
+    sources: []
