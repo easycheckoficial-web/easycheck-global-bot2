@@ -1,3 +1,4 @@
+# === scrape_stores.py – VERSION = "v2.1" ===
 import os, re, csv, time, datetime, requests, yaml
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup
@@ -24,34 +25,59 @@ def get_sel(s, key):
     return val if val else ""
 
 def parse_cards(html, sel, base_url):
-    soup = BeautifulSoup(html, "html.parser")
+    soup = BeautifulSoup(html or "", "html.parser")
     cards = soup.select(sel["card"]) if sel.get("card") else []
     out = []
+
     for c in cards:
-        title_el = c.select_one(get_sel(sel, "title"))
+        # SAFE SELECT helpers (não chamam select_one(''))
+        def sel_one(selector):
+            if not selector: return None
+            try:
+                return c.select_one(selector)
+            except Exception:
+                return None
+
+        def sel_attr_img(selector):
+            el = sel_one(selector)
+            if not el: return ""
+            if el.has_attr("src"): return urljoin(base_url, el["src"])
+            if el.has_attr("data-src"): return urljoin(base_url, el["data-src"])
+            return ""
+
+        def sel_href(selector):
+            el = sel_one(selector)
+            if el and el.has_attr("href"):
+                return urljoin(base_url, el["href"])
+            return ""
+
+        title_el = sel_one(get_sel(sel, "title"))
         name = text(title_el)
-        if not name: continue
-        brand = text(c.select_one(get_sel(sel, "brand")))
-        qty = text(c.select_one(get_sel(sel, "qty")))
-        price_el = c.select_one(get_sel(sel, "price"))
+        if not name:
+            continue
+
+        brand = text(sel_one(get_sel(sel, "brand")))
+        qty   = text(sel_one(get_sel(sel, "qty")))
+
+        price_el = sel_one(get_sel(sel, "price"))
         price = None
         if price_el:
             m = re.search(r"(\d+(?:[\.,]\d+)?)", text(price_el).replace(",", "."))
             if m: price = float(m.group(1))
-        promo = bool(c.select_one(get_sel(sel, "promo")))
-        a = c.select_one(get_sel(sel, "link"))
-        url = urljoin(base_url, a["href"]) if a and a.has_attr("href") else ""
-        img_el = c.select_one(get_sel(sel, "image"))
-        img = ""
-        if img_el:
-            if img_el.has_attr("src"): img = urljoin(base_url, img_el["src"])
-            elif img_el.has_attr("data-src"): img = urljoin(base_url, img_el["data-src"])
-        ean = ""  # raramente aparece no listing
-        out.append({"name": name, "brand": brand, "qty": qty, "price": price,
-                    "promo": promo, "url": url, "img": img, "ean": ean})
+
+        promo = bool(sel_one(get_sel(sel, "promo")))
+        url   = sel_href(get_sel(sel, "link"))
+        img   = sel_attr_img(get_sel(sel, "image"))
+        ean   = ""  # raramente aparece no listing
+
+        out.append({
+            "name": name, "brand": brand, "qty": qty, "price": price,
+            "promo": promo, "url": url, "img": img, "ean": ean
+        })
     return out
 
 def main():
+    print(">> Running scrape_stores.py VERSION v2.1")
     os.makedirs(OUT_DIR, exist_ok=True)
     stores = load_config()
 
@@ -61,20 +87,27 @@ def main():
     now = datetime.datetime.utcnow().replace(microsecond=0).isoformat()+"Z"
 
     for store in stores:
-        code   = store["code"]
-        name   = store.get("name", code)
-        country= store.get("country", "LU")
-        base   = store.get("base_url", "")
-        sel    = store.get("selectors", {})
-        sources= store.get("sources", [])
+        code    = store["code"]
+        name    = store.get("name", code)
+        country = store.get("country", "LU")
+        base    = store.get("base_url", "")
+        sel     = store.get("selectors", {})
+        sources = store.get("sources", [])
 
         for src in sources:
             stype = src.get("type")
             url   = src.get("url")
-            if not url: continue
+            if not url:
+                continue
 
+            html = ""
             try:
-                html = http(url) if stype != "pdf" else ""
+                if stype != "pdf":
+                    html = http(url)
+            except requests.HTTPError as e:
+                # 403/401/5xx: loga e segue para próxima fonte/loja
+                print(f"[{code}] erro ao abrir {url}: {e}")
+                continue
             except Exception as e:
                 print(f"[{code}] erro ao abrir {url}: {e}")
                 continue
@@ -83,7 +116,7 @@ def main():
             if stype in ("category", "offers_page"):
                 items = parse_cards(html, sel, base)
             elif stype == "pdf":
-                # TODO: implementar parse de PDF se precisares
+                # TODO: implementar parse de PDF quando houver links diretos
                 items = []
             else:
                 continue
@@ -93,7 +126,6 @@ def main():
                 qv, baseu = parse_qty(it["qty"])
                 pu, unit = unit_price(it["price"], qv, baseu)
 
-                # oferta
                 ofertas_rows.append({
                     "ProductUID": uid,
                     "EAN": it["ean"],
@@ -113,7 +145,6 @@ def main():
                     "FetchedAt": now
                 })
 
-                # produto
                 if uid not in produtos_map:
                     produtos_map[uid] = {
                         "UID": uid,
@@ -128,7 +159,7 @@ def main():
                         "ScoreInicial": 5.0
                     }
 
-            time.sleep(0.3)
+            time.sleep(0.2)
 
     # escrever ofertas_full
     cols_o = ["ProductUID","EAN","NomeProduto","Loja","Store","Country","Preco","Moeda","PrecoUnidade","Unidade","IsPromo","ValidadeDe","ValidadeAte","SourceURL","SourceType","FetchedAt"]
