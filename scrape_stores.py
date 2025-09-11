@@ -1,0 +1,148 @@
+import os, re, csv, time, datetime, requests, yaml
+from urllib.parse import urljoin
+from bs4 import BeautifulSoup
+from utils import parse_qty, unit_price, slugify
+
+OUT_DIR = "out"
+OFERTAS_FULL = os.path.join(OUT_DIR, "ofertas_full.csv")
+PROD_PRIMARY = os.path.join(OUT_DIR, "produtos_primary.csv")
+UA = "Mozilla/5.0"
+
+def http(url):
+    r = requests.get(url, timeout=30, headers={"User-Agent": UA})
+    r.raise_for_status(); return r.text
+
+def load_config(path="stores.yml"):
+    with open(path, encoding="utf-8") as f:
+        return yaml.safe_load(f)["stores"]
+
+def text(el):
+    return el.get_text(" ", strip=True) if el else ""
+
+def get_sel(s, key):
+    val = s.get(key)
+    return val if val else ""
+
+def parse_cards(html, sel, base_url):
+    soup = BeautifulSoup(html, "html.parser")
+    cards = soup.select(sel["card"]) if sel.get("card") else []
+    out = []
+    for c in cards:
+        title_el = c.select_one(get_sel(sel, "title"))
+        name = text(title_el)
+        if not name: continue
+        brand = text(c.select_one(get_sel(sel, "brand")))
+        qty = text(c.select_one(get_sel(sel, "qty")))
+        price_el = c.select_one(get_sel(sel, "price"))
+        price = None
+        if price_el:
+            m = re.search(r"(\d+(?:[\.,]\d+)?)", text(price_el).replace(",", "."))
+            if m: price = float(m.group(1))
+        promo = bool(c.select_one(get_sel(sel, "promo")))
+        a = c.select_one(get_sel(sel, "link"))
+        url = urljoin(base_url, a["href"]) if a and a.has_attr("href") else ""
+        img_el = c.select_one(get_sel(sel, "image"))
+        img = ""
+        if img_el:
+            if img_el.has_attr("src"): img = urljoin(base_url, img_el["src"])
+            elif img_el.has_attr("data-src"): img = urljoin(base_url, img_el["data-src"])
+        ean = ""  # raramente aparece no listing
+        out.append({"name": name, "brand": brand, "qty": qty, "price": price,
+                    "promo": promo, "url": url, "img": img, "ean": ean})
+    return out
+
+def main():
+    os.makedirs(OUT_DIR, exist_ok=True)
+    stores = load_config()
+
+    ofertas_rows = []
+    produtos_map = {}  # UID -> produto
+
+    now = datetime.datetime.utcnow().replace(microsecond=0).isoformat()+"Z"
+
+    for store in stores:
+        code   = store["code"]
+        name   = store.get("name", code)
+        country= store.get("country", "LU")
+        base   = store.get("base_url", "")
+        sel    = store.get("selectors", {})
+        sources= store.get("sources", [])
+
+        for src in sources:
+            stype = src.get("type")
+            url   = src.get("url")
+            if not url: continue
+
+            try:
+                html = http(url) if stype != "pdf" else ""
+            except Exception as e:
+                print(f"[{code}] erro ao abrir {url}: {e}")
+                continue
+
+            items = []
+            if stype in ("category", "offers_page"):
+                items = parse_cards(html, sel, base)
+            elif stype == "pdf":
+                # TODO: implementar parse de PDF se precisares
+                items = []
+            else:
+                continue
+
+            for it in items:
+                uid = it["ean"] if it["ean"] else slugify(it["name"], it["brand"], it["qty"])
+                qv, baseu = parse_qty(it["qty"])
+                pu, unit = unit_price(it["price"], qv, baseu)
+
+                # oferta
+                ofertas_rows.append({
+                    "ProductUID": uid,
+                    "EAN": it["ean"],
+                    "NomeProduto": it["name"],
+                    "Loja": name,
+                    "Store": code,
+                    "Country": country,
+                    "Preco": it["price"] if it["price"] is not None else "",
+                    "Moeda": "EUR",
+                    "PrecoUnidade": pu or "",
+                    "Unidade": unit or "",
+                    "IsPromo": "TRUE" if it["promo"] or stype in ("offers_page", "pdf") else "FALSE",
+                    "ValidadeDe": "",
+                    "ValidadeAte": "",
+                    "SourceURL": it["url"],
+                    "SourceType": "folheto" if stype in ("offers_page","pdf") else "categoria",
+                    "FetchedAt": now
+                })
+
+                # produto
+                if uid not in produtos_map:
+                    produtos_map[uid] = {
+                        "UID": uid,
+                        "EAN": it["ean"],
+                        "Nome": it["name"],
+                        "Marca": it["brand"],
+                        "Rayon": "",
+                        "SousRayon": "",
+                        "Tamanho": it["qty"],
+                        "Imagem": it["img"],
+                        "Fonte": code,
+                        "ScoreInicial": 5.0
+                    }
+
+            time.sleep(0.3)
+
+    # escrever ofertas_full
+    cols_o = ["ProductUID","EAN","NomeProduto","Loja","Store","Country","Preco","Moeda","PrecoUnidade","Unidade","IsPromo","ValidadeDe","ValidadeAte","SourceURL","SourceType","FetchedAt"]
+    with open(OFERTAS_FULL,"w",newline="",encoding="utf-8") as f:
+        w=csv.DictWriter(f, fieldnames=cols_o); w.writeheader()
+        for r in ofertas_rows: w.writerow(r)
+    print(f"✅ ofertas_full.csv ({len(ofertas_rows)} linhas)")
+
+    # escrever produtos_primary
+    cols_p = ["UID","EAN","Nome","Marca","Rayon","SousRayon","Tamanho","Imagem","Fonte","ScoreInicial"]
+    with open(PROD_PRIMARY,"w",newline="",encoding="utf-8") as f:
+        w=csv.DictWriter(f, fieldnames=cols_p); w.writeheader()
+        for r in produtos_map.values(): w.writerow(r)
+    print(f"✅ produtos_primary.csv ({len(produtos_map)} itens)")
+
+if __name__=="__main__":
+    main()
