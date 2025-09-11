@@ -1,168 +1,176 @@
-import os, re, csv, time, datetime, requests, yaml
-from urllib.parse import urljoin
-from bs4 import BeautifulSoup
-from utils import parse_qty, unit_price, slugify
+stores:
+  - code: "AUCHAN"
+    name: "Auchan"
+    country: "LU"
+    base_url: "https://auchan.lu"
+    sources:
+      - type: "category"
+        url: "https://auchan.lu/2214-epicerie-salee"
+      - type: "category"
+        url: "https://auchan.lu/1579-epicerie-sucree"
+      - type: "category"
+        url: "https://auchan.lu/2040-surgeles"
+      - type: "category"
+        url: "https://auchan.lu/2489-boissons"
+      - type: "offers_page"
+        url: "https://auchan.lu/catalogue"
+    selectors:
+      card: ".product, .product-card, li.product-item"
+      title: ".product-title, .product-name, h2, h3"
+      brand: ".brand, .product-brand"
+      qty: ".size, .quantity, .product-quantity"
+      price: ".price, .product-price, .current-price"
+      promo: ".promo, .badge-promo, .discount"
+      link: "a[href]"
+      image: "img"
+      ean: ""
 
-OUT_DIR = "out"
-OFERTAS_FULL = os.path.join(OUT_DIR, "ofertas_full.csv")
-PROD_PRIMARY = os.path.join(OUT_DIR, "produtos_primary.csv")
-UA = "Mozilla/5.0"
+  - code: "LUXCADDY"
+    name: "Luxcaddy"
+    country: "LU"
+    base_url: "https://luxcaddy.lu"
+    sources:
+      - type: "category"
+        url: "https://luxcaddy.lu/en/categories/5762/groceries"
+      - type: "category"
+        url: "https://luxcaddy.lu/en/categories/397/vegetables"
+      - type: "category"
+        url: "https://luxcaddy.lu/en/categories/129/prepared-dishes-canned-food"
+    selectors:
+      card: ".product, .product-item, .grid__item, article"
+      title: ".product__title, .product-title, h3, h2, .title"
+      brand: ""
+      qty: ".product__unit, .size, .quantity, .subtitle"
+      price: ".price, .product__price, .money, .amount"
+      promo: ".badge, .sale, .promo"
+      link: "a[href]"
+      image: "img"
+      ean: ""
 
-def http(url):
-    r = requests.get(url, timeout=30, headers={"User-Agent": UA})
-    r.raise_for_status(); return r.text
+  - code: "ALDI"
+    name: "ALDI"
+    country: "LU"
+    base_url: "https://www.aldi.lu"
+    sources:
+      - type: "category"
+        url: "https://www.aldi.lu/fr/produits.html"
+      - type: "offers_page"
+        url: "https://www.aldi.lu/fr/nos-offres.html"
+    selectors:
+      card: ".product, .product-card, article, li"
+      title: "h3, .title, .product-title"
+      brand: ""
+      qty: ".size, .quantity, .subtitle"
+      price: ".price, .amount"
+      promo: ".badge, .promo, .discount"
+      link: "a[href]"
+      image: "img"
+      ean: ""
 
-def load_config(path="stores.yml"):
-    with open(path, encoding="utf-8") as f:
-        return yaml.safe_load(f)["stores"]
+  - code: "CACTUS"
+    name: "Cactus"
+    country: "LU"
+    base_url: "https://www.cactus.lu"
+    sources:
+      - type: "offers_page"
+        url: "https://www.cactus.lu/fr/catalogues-et-promotions"
+    selectors:
+      card: ".views-row, .product, .product-card, li, article"
+      title: "h3, .product-title, .title"
+      brand: ""
+      qty: ".size, .quantity, .subtitle"
+      price: ".price, .field--name-field-price, .amount"
+      promo: ".promotion, .promo, .badge"
+      link: "a[href]"
+      image: "img"
+      ean: ""
 
-def text(el):
-    return el.get_text(" ", strip=True) if el else ""
+  - code: "LIDL"
+    name: "Lidl"
+    country: "LU"
+    base_url: "https://www.lidl.lu"
+    sources:
+      - type: "offers_page"
+        url: "https://www.lidl.lu/c/folders/s10019808"
+    selectors:
+      card: ".teaser, .product-tile, article"
+      title: ".title, h3, h2"
+      brand: ""
+      qty: ".subline, .subtitle, .size"
+      price: ".price, .price__amount, .pricebox__price"
+      promo: ".badge, .promo, .discount"
+      link: "a[href]"
+      image: "img"
+      ean: ""
 
-def get_sel(s, key):
-    val = s.get(key)
-    return val if val else ""
+  - code: "DELHAIZE"
+    name: "Delhaize"
+    country: "LU"
+    base_url: "https://www.delhaize.lu"
+    sources:
+      - type: "offers_page"
+        url: "https://www.delhaize.lu/fr/promos-de-la-semaine"
+    selectors:
+      card: ".product, .promo-card, li, article"
+      title: ".product-title, h3, h2, .title"
+      brand: ".brand"
+      qty: ".size, .quantity"
+      price: ".price, .current-price, .amount"
+      promo: ".promo, .badge, .discount"
+      link: "a[href]"
+      image: "img"
+      ean: ""
 
-def parse_cards(html, sel, base_url):
-    soup = BeautifulSoup(html, "html.parser")
-    cards = soup.select(sel["card"]) if sel.get("card") else []
-    out = []
+  - code: "COLRUYT"
+    name: "Colruyt"
+    country: "LU"
+    base_url: "https://www.colruyt.lu"
+    sources:
+      - type: "category"
+        url: "https://www.colruyt.lu/fr-lu/produits?page=1"
+    selectors:
+      card: "article, .product, li"
+      title: "h3, .title, .product-title"
+      brand: ".brand, .product-brand"
+      qty: ".size, .quantity"
+      price: ".price, .amount"
+      promo: ".promo, .badge"
+      link: "a[href]"
+      image: "img"
+      ean: ""
 
-    for c in cards:
-        # helpers que NÃO quebram se o seletor vier vazio
-        def sel_one(selector):
-            if not selector: return None
-            return c.select_one(selector)
+  - code: "CARREFOUR_EXPRESS"
+    name: "Carrefour Express"
+    country: "LU"
+    base_url: "https://magasins.carrefour.be"
+    sources: []
 
-        def sel_attr_img(selector):
-            el = sel_one(selector)
-            if not el: return ""
-            if el.has_attr("src"): return urljoin(base_url, el["src"])
-            if el.has_attr("data-src"): return urljoin(base_url, el["data-src"])
-            return ""
+  - code: "MONOPRIX"
+    name: "Monoprix"
+    country: "LU"
+    base_url: "https://www.monoprix.lu"
+    sources:
+      - type: "category"
+        url: "https://www.monoprix.lu/"
+    selectors:
+      card: ".product, .product-card, li, article"
+      title: ".product-title, h3, h2, .title"
+      brand: ".brand, .product-brand"
+      qty: ".size, .quantity, .subtitle"
+      price: ".price, .current-price, .amount"
+      promo: ".promo, .badge, .discount"
+      link: "a[href]"
+      image: "img"
+      ean: ""
 
-        def sel_href(selector):
-            el = sel_one(selector)
-            if el and el.has_attr("href"):
-                return urljoin(base_url, el["href"])
-            return ""
+  - code: "NATURATA"
+    name: "Naturata"
+    country: "LU"
+    base_url: "https://www.naturata.lu"
+    sources: []
 
-        title_el = sel_one(get_sel(sel, "title"))
-        name = text(title_el)
-        if not name:
-            continue
-
-        brand = text(sel_one(get_sel(sel, "brand")))
-        qty   = text(sel_one(get_sel(sel, "qty")))
-
-        price_el = sel_one(get_sel(sel, "price"))
-        price = None
-        if price_el:
-            m = re.search(r"(\d+(?:[\.,]\d+)?)", text(price_el).replace(",", "."))
-            if m: price = float(m.group(1))
-
-        promo = bool(sel_one(get_sel(sel, "promo")))
-        url   = sel_href(get_sel(sel, "link"))
-        img   = sel_attr_img(get_sel(sel, "image"))
-        ean   = ""  # raramente aparece no listing
-
-        out.append({
-            "name": name, "brand": brand, "qty": qty, "price": price,
-            "promo": promo, "url": url, "img": img, "ean": ean
-        })
-    return out
-
-def main():
-    os.makedirs(OUT_DIR, exist_ok=True)
-    stores = load_config()
-
-    ofertas_rows = []
-    produtos_map = {}  # UID -> produto
-
-    now = datetime.datetime.utcnow().replace(microsecond=0).isoformat()+"Z"
-
-    for store in stores:
-        code    = store["code"]
-        name    = store.get("name", code)
-        country = store.get("country", "LU")
-        base    = store.get("base_url", "")
-        sel     = store.get("selectors", {})
-        sources = store.get("sources", [])
-
-        for src in sources:
-            stype = src.get("type")
-            url   = src.get("url")
-            if not url: 
-                continue
-
-            try:
-                html = http(url) if stype != "pdf" else ""
-            except Exception as e:
-                print(f"[{code}] erro ao abrir {url}: {e}")
-                continue
-
-            items = []
-            if stype in ("category", "offers_page"):
-                items = parse_cards(html, sel, base)
-            elif stype == "pdf":
-                # TODO: implementar parse de PDF quando houver links diretos
-                items = []
-            else:
-                continue
-
-            for it in items:
-                uid = it["ean"] if it["ean"] else slugify(it["name"], it["brand"], it["qty"])
-                qv, baseu = parse_qty(it["qty"])
-                pu, unit = unit_price(it["price"], qv, baseu)
-
-                ofertas_rows.append({
-                    "ProductUID": uid,
-                    "EAN": it["ean"],
-                    "NomeProduto": it["name"],
-                    "Loja": name,
-                    "Store": code,
-                    "Country": country,
-                    "Preco": it["price"] if it["price"] is not None else "",
-                    "Moeda": "EUR",
-                    "PrecoUnidade": pu or "",
-                    "Unidade": unit or "",
-                    "IsPromo": "TRUE" if it["promo"] or stype in ("offers_page", "pdf") else "FALSE",
-                    "ValidadeDe": "",
-                    "ValidadeAte": "",
-                    "SourceURL": it["url"],
-                    "SourceType": "folheto" if stype in ("offers_page","pdf") else "categoria",
-                    "FetchedAt": now
-                })
-
-                if uid not in produtos_map:
-                    produtos_map[uid] = {
-                        "UID": uid,
-                        "EAN": it["ean"],
-                        "Nome": it["name"],
-                        "Marca": it["brand"],
-                        "Rayon": "",
-                        "SousRayon": "",
-                        "Tamanho": it["qty"],
-                        "Imagem": it["img"],
-                        "Fonte": code,
-                        "ScoreInicial": 5.0
-                    }
-
-            time.sleep(0.2)
-
-    # escrever ofertas_full
-    cols_o = ["ProductUID","EAN","NomeProduto","Loja","Store","Country","Preco","Moeda","PrecoUnidade","Unidade","IsPromo","ValidadeDe","ValidadeAte","SourceURL","SourceType","FetchedAt"]
-    with open(OFERTAS_FULL,"w",newline="",encoding="utf-8") as f:
-        w=csv.DictWriter(f, fieldnames=cols_o); w.writeheader()
-        for r in ofertas_rows: w.writerow(r)
-    print(f"✅ ofertas_full.csv ({len(ofertas_rows)} linhas)")
-
-    # escrever produtos_primary
-    cols_p = ["UID","EAN","Nome","Marca","Rayon","SousRayon","Tamanho","Imagem","Fonte","ScoreInicial"]
-    with open(PROD_PRIMARY,"w",newline="",encoding="utf-8") as f:
-        w=csv.DictWriter(f, fieldnames=cols_p); w.writeheader()
-        for r in produtos_map.values(): w.writerow(r)
-    print(f"✅ produtos_primary.csv ({len(produtos_map)} itens)")
-
-if __name__=="__main__":
-    main()
+  - code: "ALAVITA"
+    name: "Alavita"
+    country: "LU"
+    base_url: "https://www.alavita.lu"
+    sources: []
