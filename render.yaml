@@ -5,9 +5,8 @@ services:
     region: frankfurt
     schedule: "0 6 * * *"   # todos os dias 06:00 UTC (08:00 LU)
     dockerfilePath: ./Dockerfile
-    plan: free
     envVars:
-      - key: RENDER_GIT_TOKEN   # cola no Dashboard (não no código)
+      - key: RENDER_GIT_TOKEN   # define no Dashboard (não no código)
         sync: false
       - key: GIT_USER_NAME
         value: "easycheck-bot"
@@ -15,4 +14,3 @@ services:
         value: "easycheck-bot@users.noreply.github.com"
       - key: DEBUG_HTML
         value: "1"
-    startCommand: bash /app/run.sh
