@@ -11,6 +11,8 @@ on:
 jobs:
   run-bot:
     runs-on: ubuntu-latest
+    env:
+      DEBUG_HTML: "1"     # deixa 1 nos primeiros runs para salvar HTML e afinarmos seletores
 
     steps:
       - name: Checkout
@@ -36,8 +38,8 @@ jobs:
       - name: 1) Raspar lojas (gera ofertas_full.csv + produtos_primary.csv)
         run: python scrape_stores.py
 
-      - name: 2) Completar catálogo com OFF (gera produtos.csv)
-        run: python seed_off_fallback.py
+      - name: 2) Construir catálogo só das LOJAS (gera produtos.csv)
+        run: python build_products_from_stores.py
 
       - name: 3) Unificar preços vigentes e promoções (gera ofertas_snapshot.csv + promocoes.csv)
         run: python merge_offers.py
@@ -49,7 +51,8 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add out/*.csv || true
-          git commit -m "update CSVs (full/snapshot/promocoes/produtos)" || exit 0
+          git add out/debug/*.html || true
+          git commit -m "update CSVs (full/snapshot/promocoes/produtos) + debug html" || exit 0
           git pull --rebase origin "$BRANCH_NAME" || true
           git push origin "HEAD:$BRANCH_NAME"
 
@@ -58,4 +61,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: csvs
-          path: out/*.csv
+          path: |
+            out/*.csv
+            out/debug/*.html
