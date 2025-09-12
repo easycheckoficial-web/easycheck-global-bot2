@@ -1,8 +1,9 @@
 UID,EAN,Nome,Marca,Rayon,SousRayon,Tamanho,Imagem,Fonte,ScoreInicial
-beurre-rose,,Beurre rose,,,,,https://www.delhaize.lu/fr/file/25085.promo-home-std/4c8a59b3de00a08c97b04641123cea5c/25_s38_pushs_website-03.png,DELHAIZE,5.0
-biscuits,,Biscuits,,,,,https://www.delhaize.lu/fr/file/25086.promo-home-std/e82e051da2ad43e8f4dbec01fa8e886f/25_s38_pushs_website-04.png,DELHAIZE,5.0
-queues-de-crevettes,,Queues de crevettes,,,,,https://www.delhaize.lu/fr/file/25084.promo-home-std/7165371b8811e8eeeb55bcaf8d904935/25_s38_pushs_website-02.png,DELHAIZE,5.0
+catalogues-et-promotions,,Catalogues et promotions,,,,,https://www.cactus.lu/sites/default/files/2025-09/cactus_on_top_sem_37_backto_school.jpg,CACTUS,5.0
 yaourt-style-islandais,,Yaourt style islandais,,,,,https://www.delhaize.lu/fr/file/25082.promo-home-std/094ea9fca75fbb755fa0e0b0b385875c/25_s38_pushs_website-01.png,DELHAIZE,5.0
+biscuits,,Biscuits,,,,,https://www.delhaize.lu/fr/file/25086.promo-home-std/e82e051da2ad43e8f4dbec01fa8e886f/25_s38_pushs_website-04.png,DELHAIZE,5.0
+beurre-rose,,Beurre rose,,,,,https://www.delhaize.lu/fr/file/25085.promo-home-std/4c8a59b3de00a08c97b04641123cea5c/25_s38_pushs_website-03.png,DELHAIZE,5.0
+queues-de-crevettes,,Queues de crevettes,,,,,https://www.delhaize.lu/fr/file/25084.promo-home-std/7165371b8811e8eeeb55bcaf8d904935/25_s38_pushs_website-02.png,DELHAIZE,5.0
 3274080005003,3274080005003,Eau De Source,Cristaline,Boissons,Gama,1500 ml,https://images.openfoodfacts.org/images/products/327/408/000/5003/front_en.797.400.jpg,OFF,12.591
 7622210449283,7622210449283,Prince Goût Chocolat,Lu,Boissons,Gama,300 g,https://images.openfoodfacts.org/images/products/762/221/044/9283/front_en.605.400.jpg,OFF,11.996
 3017620425035,3017620425035,Nutella,Ferrero,Épicerie salée,Gama,1 kg,https://images.openfoodfacts.org/images/products/301/762/042/5035/front_en.583.400.jpg,OFF,11.907
@@ -72,7 +73,7 @@ yaourt-style-islandais,,Yaourt style islandais,,,,,https://www.delhaize.lu/fr/fi
 3017760472890,3017760472890,BelVita Original Petit Déjeuner pépites de chocolat,LU,Boissons,Gama,300 g,https://images.openfoodfacts.org/images/products/301/776/047/2890/front_fr.84.400.jpg,OFF,9.727
 3600900006972,3600900006972,tendres perles,Tipiak,Épicerie salée,Gama,2x175g,https://images.openfoodfacts.org/images/products/360/090/000/6972/front_fr.84.400.jpg,OFF,9.754
 5010029201246,5010029201246,Swiss Style Muesli,Alpen,Épicerie salée,Gama,560 g,https://images.openfoodfacts.org/images/products/501/002/920/1246/front_en.193.400.jpg,OFF,9.718
-5411188139126,5411188139126,Sabor Natural con Coco,alpro,Épicerie salée,Gama,400 g,https://images.openfoodfacts.org/images/products/541/118/813/9126/front_en.49.400.jpg,OFF,9.654
+5411188139126,5411188139126,Iogurte Natural con Coco,alpro,Crèmerie / Laticínios,Gama,400 g,https://images.openfoodfacts.org/images/products/541/118/813/9126/front_en.54.400.jpg,OFF,9.654
 5410013100003,5410013100003,Spa reine,spa,Épicerie salée,Gama,"1,5 l",https://images.openfoodfacts.org/images/products/541/001/310/0003/front_en.12.400.jpg,OFF,9.625
 3057640508813,3057640508813,Infusion touche d'Hibiscus,Volvic,Épicerie salée,Gama,75cl,https://images.openfoodfacts.org/images/products/305/764/050/8813/front_fr.52.400.jpg,OFF,9.554
 3165440007808,3165440007808,Chapelure dorée,Tipiak,Épicerie salée,Gama,250 g,https://images.openfoodfacts.org/images/products/316/544/000/7808/front_fr.113.400.jpg,OFF,9.533
@@ -494,7 +495,7 @@ yaourt-style-islandais,,Yaourt style islandais,,,,,https://www.delhaize.lu/fr/fi
 7622300315733,7622300315733,Frischkäse Original Philadelphia,Mondelez,Épicerie salée,Gama,175 gram,https://images.openfoodfacts.org/images/products/762/230/031/5733/front_de.128.400.jpg,OFF,10.288
 4025500287955,4025500287955,Kefir - Pur,Müller,Épicerie salée,Gama,500g,https://images.openfoodfacts.org/images/products/402/550/028/7955/front_en.25.400.jpg,OFF,10.338
 20337292,20337292,Pistacchi,AlestoLidl,Épicerie salée,Gama,250 g,https://images.openfoodfacts.org/images/products/000/002/033/7292/front_en.84.400.jpg,OFF,10.278
-8852018101024,8852018101024,Instant Nudeln - Chicken Flavour,YUM YUM,Épicerie salée,Gama,60 gram,https://images.openfoodfacts.org/images/products/885/201/810/1024/front_en.221.400.jpg,OFF,10.268
+8852018101024,8852018101024,Instant Nudeln - Chicken Flavour,yumyum,Épicerie salée,Gama,60 gram,https://images.openfoodfacts.org/images/products/885/201/810/1024/front_en.221.400.jpg,OFF,10.268
 8712100724572,8712100724572,Levure Chimique Alsacienne,Alsa,Épicerie salée,Gama,88 g,https://images.openfoodfacts.org/images/products/871/210/072/4572/front_en.149.400.jpg,OFF,10.273
 5411188112778,5411188112778,"Alpro® Mandeldrink Ungesüßt, 1 L, FRESH",Alpro,Épicerie salée,Gama,1 l,https://images.openfoodfacts.org/images/products/541/118/811/2778/front_en.118.400.jpg,OFF,10.268
 4008400260921,4008400260921,Kinder Country,Ferrero,Épicerie salée,Gama,211.5 g,https://images.openfoodfacts.org/images/products/400/840/026/0921/front_en.139.400.jpg,OFF,10.22
