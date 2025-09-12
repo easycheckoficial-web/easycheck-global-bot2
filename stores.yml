@@ -1,88 +1,105 @@
 stores:
-  # === AUCHAN (todas as categorias principais) ===
   - code: "AUCHAN"
     name: "Auchan"
     country: "LU"
     base_url: "https://auchan.lu"
     sources:
-      # FRAIS
       - type: "category"  # Fruits & Légumes
         url: "https://auchan.lu/2208-fruits-legumes"
         render: true
-      - type: "category"  # Produits frais (laticínios, etc.)
+        scroll: true
+      - type: "category"  # Produits frais
         url: "https://auchan.lu/1578-produits-frais"
         render: true
+        scroll: true
       - type: "category"  # Boucherie / Volaille / Poissonnerie
         url: "https://auchan.lu/1577-boucherie-volaille-poissonnerie"
         render: true
+        scroll: true
       - type: "category"  # Boulangerie & viennoiseries
         url: "https://auchan.lu/1580-boulangerie-viennoiseries"
         render: true
+        scroll: true
 
-      # SURGELES
       - type: "category"
         url: "https://auchan.lu/2040-surgeles"
         render: true
+        scroll: true
       - type: "category"
         url: "https://auchan.lu/2042-legumes-fruits-surgeles"
         render: true
+        scroll: true
       - type: "category"
         url: "https://auchan.lu/2041-glaces-sorbets"
         render: true
+        scroll: true
       - type: "category"
         url: "https://auchan.lu/2043-poissons-viandes-surgeles"
         render: true
+        scroll: true
 
-      # EPICERIE
       - type: "category"
         url: "https://auchan.lu/2214-epicerie-salee"
         render: true
+        scroll: true
       - type: "category"
         url: "https://auchan.lu/1579-epicerie-sucree"
         render: true
+        scroll: true
       - type: "category"
         url: "https://auchan.lu/2479-soupes-potages"
         render: true
+        scroll: true
       - type: "category"
         url: "https://auchan.lu/2480-conserves-plats-cuisines"
         render: true
+        scroll: true
       - type: "category"
         url: "https://auchan.lu/2481-pates-riz-feculents"
         render: true
+        scroll: true
       - type: "category"
         url: "https://auchan.lu/2482-aperitifs"
         render: true
+        scroll: true
       - type: "category"
         url: "https://auchan.lu/2483-sauces-condiments"
         render: true
+        scroll: true
 
-      # BOISSONS
       - type: "category"
         url: "https://auchan.lu/2489-boissons"
         render: true
+        scroll: true
       - type: "category"
         url: "https://auchan.lu/2490-cafes-thes-boissons-chaudes"
         render: true
+        scroll: true
       - type: "category"
         url: "https://auchan.lu/2491-jus-fruits-legumes"
         render: true
+        scroll: true
       - type: "category"
         url: "https://auchan.lu/2492-boissons-gazeuses-energetiques"
         render: true
+        scroll: true
       - type: "category"
         url: "https://auchan.lu/2493-eaux"
         render: true
+        scroll: true
       - type: "category"
         url: "https://auchan.lu/2494-bieres-vins-alcools"
         render: true
+        scroll: true
       - type: "category"
         url: "https://auchan.lu/2495-boissons-locales"
         render: true
+        scroll: true
 
-      # PROMOS
       - type: "offers_page"
         url: "https://auchan.lu/catalogue"
         render: true
+        scroll: true
     selectors:
       card: ".product, .product-card, li.product-item, .product-item"
       title: ".product-title, .product-name, h2, h3, .product-item-name"
@@ -94,7 +111,6 @@ stores:
       image: "img, picture img, .product-image img"
       ean: ""
 
-  # === LUXCADDY (estático) ===
   - code: "LUXCADDY"
     name: "Luxcaddy"
     country: "LU"
@@ -117,7 +133,6 @@ stores:
       image: "img"
       ean: ""
 
-  # === ALDI (dinâmico) ===
   - code: "ALDI"
     name: "ALDI"
     country: "LU"
@@ -126,9 +141,11 @@ stores:
       - type: "category"
         url: "https://www.aldi.lu/fr/produits.html"
         render: true
+        scroll: true
       - type: "offers_page"
         url: "https://www.aldi.lu/fr/nos-offres.html"
         render: true
+        scroll: true
     selectors:
       card: ".product, .product-card, article, li"
       title: "h3, .title, .product-title"
@@ -140,7 +157,6 @@ stores:
       image: "img"
       ean: ""
 
-  # === CACTUS (dinâmico / Drupal) ===
   - code: "CACTUS"
     name: "Cactus"
     country: "LU"
@@ -149,6 +165,7 @@ stores:
       - type: "offers_page"
         url: "https://www.cactus.lu/fr/catalogues-et-promotions"
         render: true
+        scroll: true
     selectors:
       card: ".views-row, .product, .product-card, li, article, .node--view-mode-teaser, .card"
       title: "h3, .product-title, .title, .node__title, .card__title"
@@ -160,7 +177,6 @@ stores:
       image: "img, picture img, .field--name-field-image img, .card img"
       ean: ""
 
-  # === LIDL (dinâmico) ===
   - code: "LIDL"
     name: "Lidl"
     country: "LU"
@@ -169,6 +185,7 @@ stores:
       - type: "offers_page"
         url: "https://www.lidl.lu/c/folders/s10019808"
         render: true
+        scroll: true
     selectors:
       card: ".teaser, .product-tile, article"
       title: ".title, h3, h2"
@@ -180,7 +197,6 @@ stores:
       image: "img"
       ean: ""
 
-  # === DELHAIZE (dinâmico) ===
   - code: "DELHAIZE"
     name: "Delhaize"
     country: "LU"
@@ -189,6 +205,7 @@ stores:
       - type: "offers_page"
         url: "https://www.delhaize.lu/fr/promos-de-la-semaine"
         render: true
+        scroll: true
     selectors:
       card: ".product, .promo-card, li, article, .card, .tile"
       title: ".product-title, .title, h3, h2, .card__title, .tile__title"
@@ -200,7 +217,6 @@ stores:
       image: "img, picture img, .card img, .tile img"
       ean: ""
 
-  # === COLRUYT (pode ser dinâmico) ===
   - code: "COLRUYT"
     name: "Colruyt"
     country: "LU"
@@ -209,6 +225,7 @@ stores:
       - type: "category"
         url: "https://www.colruyt.lu/fr-lu/produits?page=1"
         render: true
+        scroll: true
     selectors:
       card: "article, .product, li"
       title: "h3, .title, .product-title"
@@ -220,7 +237,6 @@ stores:
       image: "img"
       ean: ""
 
-  # === MONOPRIX (dinâmico) ===
   - code: "MONOPRIX"
     name: "Monoprix"
     country: "LU"
@@ -229,6 +245,7 @@ stores:
       - type: "category"
         url: "https://www.monoprix.lu/"
         render: true
+        scroll: true
     selectors:
       card: ".product, .product-card, li, article"
       title: ".product-title, h3, h2, .title"
@@ -240,7 +257,6 @@ stores:
       image: "img"
       ean: ""
 
-  # === PLACEHOLDERS (sem catálogo público) ===
   - code: "CARREFOUR_EXPRESS"
     name: "Carrefour Express"
     country: "LU"
