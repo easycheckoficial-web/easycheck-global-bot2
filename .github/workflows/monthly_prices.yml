@@ -1,0 +1,41 @@
+name: Monthly supermarket prices
+
+on:
+  schedule:
+    - cron: "20 6 1 * *"   # dia 1 às 06:20 UTC (ajusta se quiseres)
+  workflow_dispatch: {}
+
+jobs:
+  run-monthly:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python deps & Playwright
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Run scraper + merge
+        env:
+          DEBUG_HTML: "DEBUG_ON"
+        run: |
+          python scrape_monthly_playwright.py
+          python merge_offers.py
+
+      - name: Commit & push CSVs
+        run: |
+          git config user.name  "csv-bot"
+          git config user.email "csv-bot@users.noreply.github.com"
+          git add out/*.csv || true
+          git add out/debug/*.html || true
+          git commit -m "monthly: update supermarket prices" || echo "nada a commitar"
+          git push
