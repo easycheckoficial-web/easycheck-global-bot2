@@ -4,3 +4,4 @@ python-dotenv
 python-Levenshtein
 PyYAML
 pdfplumber
+playwright
