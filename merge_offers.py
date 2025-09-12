@@ -21,14 +21,13 @@ def write_csv(path, cols, rows):
 def main():
     full = read_csv(IN_FULL)
 
-    # Snapshot: último preço por ProductUID+Loja
+    # último preço por ProductUID+Loja
     last = {}
     for r in full:
         key = (r.get("ProductUID",""), r.get("Loja",""))
         last[key] = r
     snap = list(last.values())
 
-    # Promoções marcadas
     promos = [r for r in full if (r.get("IsPromo","").upper() == "TRUE")]
 
     write_csv(OUT_SNAP, COLS, snap)
