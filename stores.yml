@@ -6,14 +6,19 @@ stores:
     sources:
       - type: "category"
         url: "https://auchan.lu/2214-epicerie-salee"
+        render: true
       - type: "category"
         url: "https://auchan.lu/1579-epicerie-sucree"
+        render: true
       - type: "category"
         url: "https://auchan.lu/2040-surgeles"
+        render: true
       - type: "category"
         url: "https://auchan.lu/2489-boissons"
+        render: true
       - type: "offers_page"
         url: "https://auchan.lu/catalogue"
+        render: true
     selectors:
       card: ".product, .product-card, li.product-item"
       title: ".product-title, .product-name, h2, h3"
@@ -54,14 +59,16 @@ stores:
     sources:
       - type: "category"
         url: "https://www.aldi.lu/fr/produits.html"
+        render: true
       - type: "offers_page"
         url: "https://www.aldi.lu/fr/nos-offres.html"
+        render: true
     selectors:
       card: ".product, .product-card, article, li"
       title: "h3, .title, .product-title"
       brand: ""
       qty: ".size, .quantity, .subtitle"
-      price: ".price, .amount"
+      price: ".price, .amount, .price__value, .price__amount"
       promo: ".badge, .promo, .discount"
       link: "a[href]"
       image: "img"
@@ -74,12 +81,13 @@ stores:
     sources:
       - type: "offers_page"
         url: "https://www.cactus.lu/fr/catalogues-et-promotions"
+        render: true
     selectors:
       card: ".views-row, .product, .product-card, li, article"
       title: "h3, .product-title, .title"
       brand: ""
       qty: ".size, .quantity, .subtitle"
-      price: ".price, .field--name-field-price, .amount"
+      price: ".field--name-field-price .field__item, .amount, .price"
       promo: ".promotion, .promo, .badge"
       link: "a[href]"
       image: "img"
@@ -92,6 +100,7 @@ stores:
     sources:
       - type: "offers_page"
         url: "https://www.lidl.lu/c/folders/s10019808"
+        render: true
     selectors:
       card: ".teaser, .product-tile, article"
       title: ".title, h3, h2"
@@ -110,12 +119,13 @@ stores:
     sources:
       - type: "offers_page"
         url: "https://www.delhaize.lu/fr/promos-de-la-semaine"
+        render: true
     selectors:
       card: ".product, .promo-card, li, article"
       title: ".product-title, h3, h2, .title"
       brand: ".brand"
       qty: ".size, .quantity"
-      price: ".price, .current-price, .amount"
+      price: ".price, .current-price, .promo-price, .price__value"
       promo: ".promo, .badge, .discount"
       link: "a[href]"
       image: "img"
@@ -128,12 +138,13 @@ stores:
     sources:
       - type: "category"
         url: "https://www.colruyt.lu/fr-lu/produits?page=1"
+        render: true
     selectors:
       card: "article, .product, li"
       title: "h3, .title, .product-title"
       brand: ".brand, .product-brand"
       qty: ".size, .quantity"
-      price: ".price, .amount"
+      price: ".price, .amount, .price__value, .current-price"
       promo: ".promo, .badge"
       link: "a[href]"
       image: "img"
@@ -152,12 +163,13 @@ stores:
     sources:
       - type: "category"
         url: "https://www.monoprix.lu/"
+        render: true
     selectors:
       card: ".product, .product-card, li, article"
       title: ".product-title, h3, h2, .title"
       brand: ".brand, .product-brand"
       qty: ".size, .quantity, .subtitle"
-      price: ".price, .current-price, .amount"
+      price: ".price, .current-price, .amount, .price__value"
       promo: ".promo, .badge, .discount"
       link: "a[href]"
       image: "img"
