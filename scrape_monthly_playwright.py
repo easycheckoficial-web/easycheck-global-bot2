@@ -4,16 +4,13 @@ from urllib.parse import urlparse
 from playwright.async_api import async_playwright, Response
 from utils import slugify, is_debug, now_iso
 
-OUT_DIR = Path("out")
-OUT_DIR.mkdir(parents=True, exist_ok=True)
-DEBUG_DIR = OUT_DIR / "debug"
-DEBUG_DIR.mkdir(parents=True, exist_ok=True)
+OUT_DIR = Path("out"); OUT_DIR.mkdir(parents=True, exist_ok=True)
+DEBUG_DIR = OUT_DIR / "debug"; DEBUG_DIR.mkdir(parents=True, exist_ok=True)
+SHOT_DIR = OUT_DIR / "shots"; SHOT_DIR.mkdir(parents=True, exist_ok=True)
 
 OFERTAS_FULL = OUT_DIR / "ofertas_full.csv"
 
-# ─────────────────────────────────────────────────────────────
-# Config: lojas + categorias principais (podes acrescentar URLs)
-# ─────────────────────────────────────────────────────────────
+# ── Config: categorias por loja (podes acrescentar)
 CATEGORIES = {
     "AUCHAN": [
         "https://www.auchan.lu/fr/epicerie-salee",
@@ -40,7 +37,7 @@ CATEGORIES = {
     ],
 }
 
-# Heurísticas para extrair produto de JSON
+# Heurísticas JSON/DOM
 NAME_KEYS  = {"name", "title", "product_name", "label"}
 PRICE_KEYS = {"price", "current_price", "amount", "value", "prix", "finalPrice"}
 SIZE_KEYS  = {"size", "quantity", "pack_size", "format"}
@@ -52,15 +49,14 @@ HEADERS = {
                   "Chrome/123.0 Safari/537.36",
     "Accept-Language": "fr-LU,fr;q=0.9,en;q=0.8,pt;q=0.7",
 }
-
 MONEY = re.compile(r"(\d+(?:[.,]\d{1,2}))")
 
 def save_debug(name: str, content: str|bytes):
-    if not is_debug(): return
     p = DEBUG_DIR / name
-    mode = "wb" if isinstance(content, (bytes, bytearray)) else "w"
-    with open(p, mode, encoding=None if mode=="wb" else "utf-8") as f:
-        f.write(content)
+    if isinstance(content, (bytes, bytearray)):
+        p.write_bytes(content)
+    else:
+        p.write_text(content, encoding="utf-8")
 
 def pick(d: dict, keys: set):
     for k in list(d.keys()):
@@ -85,7 +81,7 @@ def to_text(v):
     return str(v).strip()
 
 def walk_json(obj, found):
-    """Percorre JSON recursivamente e coleta dicts com nome+preço."""
+    """Percorre JSON e coleta itens com nome+preço."""
     if isinstance(obj, dict):
         name = pick(obj, NAME_KEYS)
         price = pick(obj, PRICE_KEYS)
@@ -104,30 +100,37 @@ def walk_json(obj, found):
         for it in obj:
             walk_json(it, found)
 
-async def scroll_to_bottom(page, step=1200, max_scrolls=40):
+async def scroll_to_bottom(page, step=1200, max_scrolls=50):
     last = 0
     for _ in range(max_scrolls):
         await page.evaluate(f"window.scrollBy(0, {step});")
-        await page.wait_for_timeout(700)
+        await page.wait_for_timeout(800)
         h = await page.evaluate("document.body.scrollHeight")
         if h == last: break
         last = h
 
 async def load_more(page):
-    """ Clica botões de 'ver mais' se existirem. """
+    # tenta clicar em "ver mais"
     for _ in range(20):
         btn = await page.query_selector("button:has-text('Plus'), button:has-text('Voir plus'), button:has-text('More'), a:has-text('Plus'), a:has-text('More')")
         if not btn: break
         try:
             await btn.click()
-            await page.wait_for_timeout(1200)
+            await page.wait_for_timeout(1500)
         except:
             break
 
 async def fetch_category(play, url: str, store: str):
     offers = []
-    browser = await play.chromium.launch(headless=True)
-    context = await browser.new_context(extra_http_headers=HEADERS)
+    browser = await play.chromium.launch(
+        headless=True,
+        args=[
+            "--disable-blink-features=AutomationControlled",
+            "--no-sandbox",
+            "--disable-dev-shm-usage",
+        ],
+    )
+    context = await browser.new_context(extra_http_headers=HEADERS, locale="fr-LU")
     page = await context.new_page()
 
     collected_json = []
@@ -139,34 +142,55 @@ async def fetch_category(play, url: str, store: str):
                 if "application/json" in ct or resp.url.endswith(".json"):
                     data = await resp.json()
                     collected_json.append((resp.url, data))
-                    if is_debug():
-                        save_debug(f"net_{store}_{slugify(resp.url)[:80]}.json", json.dumps(data)[:200000].encode("utf-8"))
-        except:
+                    # salva uma amostra
+                    sample = json.dumps(data)[:200000].encode("utf-8")
+                    save_debug(f"net_{store}_{slugify(resp.url)[:80]}.json", sample)
+        except Exception:
             pass
 
     page.on("response", on_response)
 
     try:
-        await page.goto(url, wait_until="domcontentloaded", timeout=60000)
-        await page.wait_for_timeout(1200)
+        await page.goto(url, wait_until="domcontentloaded", timeout=90000)
+        await page.wait_for_timeout(1500)
         await scroll_to_bottom(page)
         await load_more(page)
         await scroll_to_bottom(page)
 
-        # 1) tenta via JSON
+        # screenshot pra verificar o que apareceu
+        try:
+            shot_path = SHOT_DIR / f"{store}_{slugify(url)[:80]}.png"
+            await page.screenshot(path=str(shot_path), full_page=True)
+        except:
+            pass
+
+        # 1) via JSON interceptado
         extracted = []
         for u, data in collected_json:
             tmp = []
             walk_json(data, tmp)
-            if tmp: extracted.extend(tmp)
+            if tmp:
+                extracted.extend(tmp)
 
-        # 2) fallback DOM (caso não haja JSON de listagem)
+        # 2) fallback DOM
         if not extracted:
-            cards = await page.query_selector_all(".product, .product-card, li.product-item, .product-grid__item, [data-test='product-tile'], .tile")
+            cards = await page.query_selector_all(
+                ".product, .product-card, li.product-item, .product-grid__item, "
+                "[data-test='product-tile'], .tile, .mod-article-tile"
+            )
             for c in cards:
-                name_el = await c.query_selector(".product-title, .product-item-name, .product__title, .title, [data-test='product-title']")
-                price_el= await c.query_selector(".price, .product-price, .product__price, .price__amount, [data-test='product-price']")
-                size_el = await c.query_selector(".size, .product-size, .product__size, .subtitle, [data-test='product-subtitle']")
+                name_el = await c.query_selector(
+                    ".product-title, .product-item-name, .product__title, .title, "
+                    "[data-test='product-title'], .mod-article-tile__title"
+                )
+                price_el= await c.query_selector(
+                    ".price, .product-price, .product__price, .price__amount, "
+                    "[data-test='product-price'], .mod-article-tile__price"
+                )
+                size_el = await c.query_selector(
+                    ".size, .product-size, .product__size, .subtitle, "
+                    "[data-test='product-subtitle'], .mod-article-tile__subtitle"
+                )
                 name = (await name_el.inner_text()).strip() if name_el else ""
                 price_txt = (await price_el.inner_text()).strip() if price_el else ""
                 size = (await size_el.inner_text()).strip() if size_el else ""
@@ -200,9 +224,12 @@ async def fetch_category(play, url: str, store: str):
                 "FetchedAt": now
             })
 
-        if is_debug():
+        # salva HTML da página final
+        try:
             html = await page.content()
             save_debug(f"html_{store}_{slugify(url)[:80]}.html", html)
+        except:
+            pass
 
     except Exception as e:
         print(f"[{store}] erro em {url}: {e}")
@@ -222,12 +249,11 @@ async def run_all():
                 print(f"[{store}] +{len(off)} linhas")
                 all_offers.extend(off)
 
+    # escreve sempre o CSV (mesmo vazio)
     cols = ["ProductUID","NomeProduto","Loja","Preco","Moeda","PrecoUnidade","Unidade","IsPromo","ValidadeDe","ValidadeAte","SourceURL","FetchedAt"]
     with open(OFERTAS_FULL, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=cols)
-        w.writeheader()
-        for r in all_offers:
-            w.writerow(r)
+        w = csv.DictWriter(f, fieldnames=cols); w.writeheader()
+        for r in all_offers: w.writerow(r)
     print(f"✅ ofertas_full.csv: {len(all_offers)} linhas")
 
 if __name__ == "__main__":
