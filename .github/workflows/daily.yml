@@ -55,3 +55,6 @@ jobs:
         with:
           name: csvs
           path: out/*.csv
+                - name: Install Playwright browsers
+        run: |
+          python -m playwright install --with-deps chromium
