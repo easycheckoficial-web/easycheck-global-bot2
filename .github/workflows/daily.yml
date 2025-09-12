@@ -5,14 +5,14 @@ permissions:
 
 on:
   schedule:
-    - cron: "0 4 * * *"
+    - cron: "0 4 * * *"   # 04:00 UTC
   workflow_dispatch: {}
 
 jobs:
   run-bot:
     runs-on: ubuntu-latest
     env:
-      DEBUG_HTML: "1"     # deixa 1 nos primeiros runs para salvar HTML e afinarmos seletores
+      DEBUG_HTML: "1"   # deixa ligado nas primeiras execuções
 
     steps:
       - name: Checkout
@@ -26,6 +26,11 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: System deps (Tesseract OCR p/ Cactus)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y tesseract-ocr tesseract-ocr-fra tesseract-ocr-eng
+
       - name: Install deps
         run: |
           python -m pip install --upgrade pip
@@ -35,13 +40,16 @@ jobs:
         run: |
           python -m playwright install --with-deps chromium
 
-      - name: 1) Raspar lojas (gera ofertas_full.csv + produtos_primary.csv)
+      - name: 1) Raspar supermercados (gera ofertas_full.csv + produtos_primary.csv)
         run: python scrape_stores.py
 
-      - name: 2) Construir catálogo só das LOJAS (gera produtos.csv)
-        run: python build_products_from_stores.py
+      - name: 2) Baixar catálogo do OFF (gera produtos_off.csv)
+        run: python seed_off_catalog.py
 
-      - name: 3) Unificar preços vigentes e promoções (gera ofertas_snapshot.csv + promocoes.csv)
+      - name: 3) Unir catálogo (lojas + OFF) → produtos.csv
+        run: python build_products_union.py
+
+      - name: 4) Consolidar preços (snapshot + promo + estimativa + OFF fallback)
         run: python merge_offers.py
 
       - name: Commit CSVs
@@ -52,7 +60,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add out/*.csv || true
           git add out/debug/*.html || true
-          git commit -m "update CSVs (full/snapshot/promocoes/produtos) + debug html" || exit 0
+          git commit -m "update CSVs (full/snapshot/promocoes/produtos)" || exit 0
           git pull --rebase origin "$BRANCH_NAME" || true
           git push origin "HEAD:$BRANCH_NAME"
 
