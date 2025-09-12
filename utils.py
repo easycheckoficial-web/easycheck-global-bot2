@@ -1,33 +1,14 @@
-import re, unicodedata
+import os, re, unicodedata, datetime
 
-def parse_qty(text):
-    if not text: return None, None
-    t = text.lower().replace(",", ".")
-    m = re.search(r"(\d+(?:\.\d+)?)\s*[x×]\s*(\d+(?:\.\d+)?)\s*(kg|g|l|ml)", t)
-    if m:
-        n1, n2, u = float(m.group(1)), float(m.group(2)), m.group(3)
-        qty = n1 * n2
-        base = "g" if u in ["kg","g"] else "ml"
-        if u == "kg": qty *= 1000
-        if u == "l":  qty *= 1000
-        return qty, base
-    m = re.search(r"(\d+(?:\.\d+)?)\s*(kg|g|l|ml|un|unid|unit)", t)
-    if m:
-        n, u = float(m.group(1)), m.group(2)
-        base = "g" if u in ["kg","g"] else ("ml" if u in ["l","ml"] else "un")
-        if u == "kg": n *= 1000
-        if u == "l":  n *= 1000
-        return n, base
-    return None, None
+def is_debug() -> bool:
+    v = os.getenv("DEBUG_HTML","")
+    return bool(str(v).strip())
 
-def unit_price(price, qty, base):
-    if not price or not qty or not base: return None, None
-    if base == "g":  return round(price/(qty/1000),4), "kg"
-    if base == "ml": return round(price/(qty/1000),4), "L"
-    return round(price/qty,4), "unid"
+def slugify(*parts) -> str:
+    s = " ".join([p for p in parts if p]).strip().lower()
+    s = unicodedata.normalize("NFKD", s).encode("ascii","ignore").decode("ascii")
+    s = re.sub(r"[^a-z0-9]+","-", s).strip("-")
+    return s[:90]
 
-def slugify(*parts):
-    s = " ".join([p for p in parts if p]).lower()
-    s = unicodedata.normalize('NFKD', s).encode('ascii', 'ignore').decode('ascii')
-    s = re.sub(r'[^a-z0-9]+','-', s).strip('-')
-    return s
+def now_iso() -> str:
+    return datetime.datetime.utcnow().isoformat()+"Z"
