@@ -1,9 +1,8 @@
 UID,EAN,Nome,Marca,Rayon,SousRayon,Tamanho,Imagem,Fonte,ScoreInicial
-catalogues-et-promotions,,Catalogues et promotions,,,,,https://www.cactus.lu/sites/default/files/2025-09/cactus_on_top_sem_37_backto_school.jpg,CACTUS,5.0
+beurre-rose,,Beurre rose,,,,,https://www.delhaize.lu/fr/file/25085.promo-home-std/4c8a59b3de00a08c97b04641123cea5c/25_s38_pushs_website-03.png,DELHAIZE,5.0
+biscuits,,Biscuits,,,,,https://www.delhaize.lu/fr/file/25086.promo-home-std/e82e051da2ad43e8f4dbec01fa8e886f/25_s38_pushs_website-04.png,DELHAIZE,5.0
 queues-de-crevettes,,Queues de crevettes,,,,,https://www.delhaize.lu/fr/file/25084.promo-home-std/7165371b8811e8eeeb55bcaf8d904935/25_s38_pushs_website-02.png,DELHAIZE,5.0
 yaourt-style-islandais,,Yaourt style islandais,,,,,https://www.delhaize.lu/fr/file/25082.promo-home-std/094ea9fca75fbb755fa0e0b0b385875c/25_s38_pushs_website-01.png,DELHAIZE,5.0
-biscuits,,Biscuits,,,,,https://www.delhaize.lu/fr/file/25086.promo-home-std/e82e051da2ad43e8f4dbec01fa8e886f/25_s38_pushs_website-04.png,DELHAIZE,5.0
-beurre-rose,,Beurre rose,,,,,https://www.delhaize.lu/fr/file/25085.promo-home-std/4c8a59b3de00a08c97b04641123cea5c/25_s38_pushs_website-03.png,DELHAIZE,5.0
 3274080005003,3274080005003,Eau De Source,Cristaline,Boissons,Gama,1500 ml,https://images.openfoodfacts.org/images/products/327/408/000/5003/front_en.797.400.jpg,OFF,12.591
 7622210449283,7622210449283,Prince Goût Chocolat,Lu,Boissons,Gama,300 g,https://images.openfoodfacts.org/images/products/762/221/044/9283/front_en.605.400.jpg,OFF,11.996
 3017620425035,3017620425035,Nutella,Ferrero,Épicerie salée,Gama,1 kg,https://images.openfoodfacts.org/images/products/301/762/042/5035/front_en.583.400.jpg,OFF,11.907
@@ -29,7 +28,7 @@ beurre-rose,,Beurre rose,,,,,https://www.delhaize.lu/fr/file/25085.promo-home-st
 3017620421006,3017620421006,Pâte à tartiner Nutella noisettes et cacao - 750g,Ferrero,Épicerie salée,Gama,750 g,https://images.openfoodfacts.org/images/products/301/762/042/1006/front_fr.337.400.jpg,OFF,10.697
 3228857000852,3228857000852,Harrys pain de mie 100% mie nature sans croute 500g,Harrys,Épicerie salée,Gama,500 g,https://images.openfoodfacts.org/images/products/322/885/700/0852/front_en.160.400.jpg,OFF,10.591
 3175681209282,3175681209282,Goûter 4S Saveur pommes,Gerblé,Fruits & Légumes,Gama,360 g,https://images.openfoodfacts.org/images/products/317/568/120/9282/front_fr.113.400.jpg,OFF,10.591
-7613036249928,7613036249928,eau minerale,Nestlé,Boissons,Gama,1500 ml,https://images.openfoodfacts.org/images/products/761/303/624/9928/front_fr.440.400.jpg,OFF,10.537
+7613036249928,7613036249928,eau minerale,Nestlé,Boissons,Gama,1500 ml,https://images.openfoodfacts.org/images/products/761/303/624/9928/front_fr.442.400.jpg,OFF,10.537
 3033710065967,3033710065967,NESQUIK Cacao,Nestlé,Épicerie salée,Gama,1 kg,https://images.openfoodfacts.org/images/products/303/371/006/5967/front_en.472.400.jpg,OFF,10.529
 5411188125808,5411188125808,Ohne Zuckerzusatz* Mango,Alpro,Épicerie salée,Gama,400 g,https://images.openfoodfacts.org/images/products/541/118/812/5808/front_de.402.400.jpg,OFF,10.617
 7613036669146,7613036669146,CHOCAPIC BIO Céréales 375g,Nestlé,Bio,Gama,375 g,https://images.openfoodfacts.org/images/products/761/303/666/9146/front_en.213.400.jpg,OFF,10.481
@@ -80,7 +79,7 @@ beurre-rose,,Beurre rose,,,,,https://www.delhaize.lu/fr/file/25085.promo-home-st
 8000430133035,8000430133035,Mozzarella,Galbani,Épicerie salée,Gama,125 g (225 g),https://images.openfoodfacts.org/images/products/800/043/013/3035/front_en.235.400.jpg,OFF,9.575
 8076800195019,8076800195019,Capellini (Spagetti) Nr. 1,Barilla,Épicerie salée,Gama,500 g,https://images.openfoodfacts.org/images/products/807/680/019/5019/front_en.2385.400.jpg,OFF,9.575
 3033491482892,3033491482892,Hipro fruit citron 160 g x 2,Danone,Épicerie salée,Gama,0.32 kg,https://images.openfoodfacts.org/images/products/303/349/148/2892/front_fr.104.400.jpg,OFF,9.466
-3266980033613,3266980033613,L'escalope Cordon Bleu Poulet,Le Gaulois,Épicerie salée,Gama,200 g (2 x 100 g),https://images.openfoodfacts.org/images/products/326/698/003/3613/front_fr.154.400.jpg,OFF,9.466
+3266980033613,3266980033613,cordon bleu le gaulois,Le Gaulois,Épicerie salée,Gama,200 g (2 x 100 g),https://images.openfoodfacts.org/images/products/326/698/003/3613/front_fr.154.400.jpg,OFF,9.466
 8001250120342,8001250120342,Fusilli n°34,De Cecco,Épicerie salée,Gama,120g,https://images.openfoodfacts.org/images/products/800/125/012/0342/front_en.160.400.jpg,OFF,9.489
 7612100066430,7612100066430,"Ovomaltine - Vitamin & Mineral Bars, 5 ct 100g (3.5oz)",Ovomaltine,Épicerie salée,Gama,100g,https://images.openfoodfacts.org/images/products/761/210/006/6430/front_fr.48.400.jpg,OFF,9.419
 5411188124269,5411188124269,"Alpro Joghurtalternative auf Sojabasis, Natur mit Hafer, 500 g",Alpro,Épicerie salée,Gama,0.5 kg,https://images.openfoodfacts.org/images/products/541/118/812/4269/front_en.100.400.jpg,OFF,9.394
@@ -150,7 +149,7 @@ beurre-rose,,Beurre rose,,,,,https://www.delhaize.lu/fr/file/25085.promo-home-st
 3233783625000,3233783625000,Purée de piments Suzi Wan 100 g,Suzi Wan,Épicerie salée,Gama,100 g,https://images.openfoodfacts.org/images/products/323/378/362/5000/front_fr.73.400.jpg,OFF,8.611
 4104420017740,4104420017740,Dinkel Crunchy,Alnatura,Épicerie salée,Gama,750 g,https://images.openfoodfacts.org/images/products/410/442/001/7740/front_en.109.400.jpg,OFF,8.584
 7622210191830,7622210191830,Le pain grillier,LU,Épicerie salée,Gama,500 g e,https://images.openfoodfacts.org/images/products/762/221/019/1830/front_fr.48.400.jpg,OFF,8.611
-3175460000062,3175460000062,Black pepper,Bel,Épicerie salée,Gama,150 g,https://images.openfoodfacts.org/images/products/317/546/000/0062/front_fr.188.400.jpg,OFF,8.526
+3175460000062,3175460000062,Black pepper,Bel,Épicerie salée,Gama,150 g,https://images.openfoodfacts.org/images/products/317/546/000/0062/front_fr.190.400.jpg,OFF,8.526
 3564707121118,3564707121118,Purée de fruits pomme sans sucres ajoutés bio,Bio Village,Fruits & Légumes,Gama,625 g,https://images.openfoodfacts.org/images/products/356/470/712/1118/front_fr.40.400.jpg,OFF,8.611
 4002971243802,4002971243802,High-Protein-Pudding - Vanilla,Ehrmann,Épicerie salée,Gama,200 g,https://images.openfoodfacts.org/images/products/400/297/124/3802/front_de.79.400.jpg,OFF,8.526
 3038359012266,3038359012266,Le Basmati du Penjab,Taureau Ailé,Boissons,Gama,"1,2 kg",https://images.openfoodfacts.org/images/products/303/835/901/2266/front_fr.20.400.jpg,OFF,8.497
@@ -381,7 +380,7 @@ beurre-rose,,Beurre rose,,,,,https://www.delhaize.lu/fr/file/25085.promo-home-st
 3451790988677,3451790988677,Le Beurre Tendre Doux,Elle & Vire,Épicerie salée,Gama,250 g,https://images.openfoodfacts.org/images/products/345/179/098/8677/front_en.186.400.jpg,OFF,11.054
 5010029000801,5010029000801,Family Pack,Weetabix,Épicerie salée,Gama,860 g,https://images.openfoodfacts.org/images/products/501/002/900/0801/front_en.60.400.jpg,OFF,11.061
 5013665112273,5013665112273,Organic Vegetable Stock Cubes,Kallø,Bio,Gama,88g,https://images.openfoodfacts.org/images/products/501/366/511/2273/front_en.62.400.jpg,OFF,11.064
-3480341000674,3480341000674,Fresh Square 0% - Plain,Elle & Vire,Épicerie salée,Gama,200 g,https://images.openfoodfacts.org/images/products/348/034/100/0674/front_en.103.400.jpg,OFF,11.006
+3480341000674,3480341000674,Carré Frais,Elle & Vire,Épicerie salée,Gama,200 g,https://images.openfoodfacts.org/images/products/348/034/100/0674/front_en.123.400.jpg,OFF,11.006
 6111203001474,6111203001474,La prairie classique,margafrique,Épicerie salée,Gama,250,https://images.openfoodfacts.org/images/products/611/120/300/1474/front_fr.15.400.jpg,OFF,11.035
 4008400401621,4008400401621,Nutella,Ferrero,Épicerie salée,Gama,450 g,https://images.openfoodfacts.org/images/products/400/840/040/1621/front_en.254.400.jpg,OFF,11.071
 3175680015228,3175680015228,Levure de bière,Gerblé,Boissons,Gama,150 g,https://images.openfoodfacts.org/images/products/317/568/001/5228/front_fr.294.400.jpg,OFF,10.996
@@ -414,7 +413,7 @@ beurre-rose,,Beurre rose,,,,,https://www.delhaize.lu/fr/file/25085.promo-home-st
 4056489007180,4056489007180,pain de mie grandes tranches spécial sandwich complet,Maître Jean Pierre,Épicerie salée,Gama,750 g,https://images.openfoodfacts.org/images/products/405/648/900/7180/front_en.115.400.jpg,OFF,10.823
 5011273040698,5011273040698,Runny Honey imp,Rowse,Épicerie salée,Gama,340 g,https://images.openfoodfacts.org/images/products/501/127/304/0698/front_en.43.400.jpg,OFF,10.796
 4016241030573,4016241030573,Skyr | Natural Fat Free | 0% Fat,Arla,Épicerie salée,Gama,450 g,https://images.openfoodfacts.org/images/products/401/624/103/0573/front_en.3.400.jpg,OFF,10.799
-7300400481571,7300400481571,wasa,Barilla,Épicerie salée,Gama,270 g,https://images.openfoodfacts.org/images/products/730/040/048/1571/front_fr.1717.400.jpg,OFF,10.778
+7300400481571,7300400481571,wasa,Barilla,Épicerie salée,Gama,270 g,https://images.openfoodfacts.org/images/products/730/040/048/1571/front_fr.1725.400.jpg,OFF,10.778
 7613035676497,7613035676497,Ricoré original,Nestlé,Épicerie salée,Gama,260 g,https://images.openfoodfacts.org/images/products/761/303/567/6497/front_en.258.400.jpg,OFF,10.793
 3175681851856,3175681851856,Biscuit raisins,Gerblé,Épicerie sucrée,Gama,270 g,https://images.openfoodfacts.org/images/products/317/568/185/1856/front_en.161.400.jpg,OFF,10.759
 3229820794525,3229820794525,Nutri+ avoine chocolat,Bjorg,Boissons,Gama,130 g,https://images.openfoodfacts.org/images/products/322/982/079/4525/front_fr.118.400.jpg,OFF,10.765
@@ -521,6 +520,6 @@ beurre-rose,,Beurre rose,,,,,https://www.delhaize.lu/fr/file/25085.promo-home-st
 4014400901191,4014400901191,merci Finest Selection Assorted Chocolates,Storck,Épicerie sucrée,Gama,250g,https://images.openfoodfacts.org/images/products/401/440/090/1191/front_en.250.400.jpg,OFF,10.159
 5000354908248,5000354908248,Custard powder,Bird's,Épicerie salée,Gama,350 g,https://images.openfoodfacts.org/images/products/500/035/490/8248/front_en.33.400.jpg,OFF,10.081
 3265474000018,3265474000018,Huile Isio 4,Lesieur,Épicerie salée,Gama,1l,https://images.openfoodfacts.org/images/products/326/547/400/0018/front_fr.125.400.jpg,OFF,10.081
-4056489406662,4056489406662,High Protein Drink Gusto Vaniglia,Lidl,Épicerie salée,Gama,330 ml,https://images.openfoodfacts.org/images/products/405/648/940/6662/front_en.108.400.jpg,OFF,10.13
+4056489406662,4056489406662,High Protein Drink Gusto Vaniglia,Lidl,Épicerie salée,Gama,330 ml,https://images.openfoodfacts.org/images/products/405/648/940/6662/front_en.162.400.jpg,OFF,10.13
 20534455,20534455,Abricot sec,Alesto,Épicerie salée,Gama,200g,https://images.openfoodfacts.org/images/products/000/002/053/4455/front_en.159.400.jpg,OFF,10.112
 9002490205973,9002490205973,25 cl Red Bull - Energy Drink,Red Bull,Épicerie salée,Gama,250 ml,https://images.openfoodfacts.org/images/products/900/249/020/5973/front_en.104.400.jpg,OFF,10.088
