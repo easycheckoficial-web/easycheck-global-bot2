@@ -1,105 +1,38 @@
 stores:
+  # === AUCHAN ===
   - code: "AUCHAN"
     name: "Auchan"
     country: "LU"
     base_url: "https://auchan.lu"
     sources:
-      - type: "category"  # Fruits & Légumes
-        url: "https://auchan.lu/2208-fruits-legumes"
-        render: true
-        scroll: true
-      - type: "category"  # Produits frais
-        url: "https://auchan.lu/1578-produits-frais"
-        render: true
-        scroll: true
-      - type: "category"  # Boucherie / Volaille / Poissonnerie
-        url: "https://auchan.lu/1577-boucherie-volaille-poissonnerie"
-        render: true
-        scroll: true
-      - type: "category"  # Boulangerie & viennoiseries
-        url: "https://auchan.lu/1580-boulangerie-viennoiseries"
-        render: true
-        scroll: true
-
-      - type: "category"
-        url: "https://auchan.lu/2040-surgeles"
-        render: true
-        scroll: true
-      - type: "category"
-        url: "https://auchan.lu/2042-legumes-fruits-surgeles"
-        render: true
-        scroll: true
-      - type: "category"
-        url: "https://auchan.lu/2041-glaces-sorbets"
-        render: true
-        scroll: true
-      - type: "category"
-        url: "https://auchan.lu/2043-poissons-viandes-surgeles"
-        render: true
-        scroll: true
-
-      - type: "category"
-        url: "https://auchan.lu/2214-epicerie-salee"
-        render: true
-        scroll: true
-      - type: "category"
-        url: "https://auchan.lu/1579-epicerie-sucree"
-        render: true
-        scroll: true
-      - type: "category"
-        url: "https://auchan.lu/2479-soupes-potages"
-        render: true
-        scroll: true
-      - type: "category"
-        url: "https://auchan.lu/2480-conserves-plats-cuisines"
-        render: true
-        scroll: true
-      - type: "category"
-        url: "https://auchan.lu/2481-pates-riz-feculents"
-        render: true
-        scroll: true
-      - type: "category"
-        url: "https://auchan.lu/2482-aperitifs"
-        render: true
-        scroll: true
-      - type: "category"
-        url: "https://auchan.lu/2483-sauces-condiments"
-        render: true
-        scroll: true
-
-      - type: "category"
-        url: "https://auchan.lu/2489-boissons"
-        render: true
-        scroll: true
-      - type: "category"
-        url: "https://auchan.lu/2490-cafes-thes-boissons-chaudes"
-        render: true
-        scroll: true
-      - type: "category"
-        url: "https://auchan.lu/2491-jus-fruits-legumes"
-        render: true
-        scroll: true
-      - type: "category"
-        url: "https://auchan.lu/2492-boissons-gazeuses-energetiques"
-        render: true
-        scroll: true
-      - type: "category"
-        url: "https://auchan.lu/2493-eaux"
-        render: true
-        scroll: true
-      - type: "category"
-        url: "https://auchan.lu/2494-bieres-vins-alcools"
-        render: true
-        scroll: true
-      - type: "category"
-        url: "https://auchan.lu/2495-boissons-locales"
-        render: true
-        scroll: true
-
-      - type: "offers_page"
-        url: "https://auchan.lu/catalogue"
-        render: true
-        scroll: true
+      # FRAIS
+      - {type: "category", url: "https://auchan.lu/2208-fruits-legumes", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/1578-produits-frais", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/1577-boucherie-volaille-poissonnerie", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/1580-boulangerie-viennoiseries", render: true, scroll: true}
+      # SURGELÉS
+      - {type: "category", url: "https://auchan.lu/2040-surgeles", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/2042-legumes-fruits-surgeles", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/2041-glaces-sorbets", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/2043-poissons-viandes-surgeles", render: true, scroll: true}
+      # ÉPICERIE
+      - {type: "category", url: "https://auchan.lu/2214-epicerie-salee", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/1579-epicerie-sucree", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/2479-soupes-potages", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/2480-conserves-plats-cuisines", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/2481-pates-riz-feculents", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/2482-aperitifs", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/2483-sauces-condiments", render: true, scroll: true}
+      # BOISSONS
+      - {type: "category", url: "https://auchan.lu/2489-boissons", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/2490-cafes-thes-boissons-chaudes", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/2491-jus-fruits-legumes", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/2492-boissons-gazeuses-energetiques", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/2493-eaux", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/2494-bieres-vins-alcools", render: true, scroll: true}
+      - {type: "category", url: "https://auchan.lu/2495-boissons-locales", render: true, scroll: true}
+      # PROMOS
+      - {type: "offers_page", url: "https://auchan.lu/catalogue", render: true, scroll: true}
     selectors:
       card: ".product, .product-card, li.product-item, .product-item"
       title: ".product-title, .product-name, h2, h3, .product-item-name"
@@ -111,81 +44,31 @@ stores:
       image: "img, picture img, .product-image img"
       ean: ""
 
-  - code: "LUXCADDY"
-    name: "Luxcaddy"
+  # === DELHAIZE (preço no card) ===
+  - code: "DELHAIZE"
+    name: "Delhaize"
     country: "LU"
-    base_url: "https://luxcaddy.lu"
+    base_url: "https://www.delhaize.lu"
     sources:
-      - type: "category"
-        url: "https://luxcaddy.lu/en/categories/5762/groceries"
-      - type: "category"
-        url: "https://luxcaddy.lu/en/categories/397/vegetables"
-      - type: "category"
-        url: "https://luxcaddy.lu/en/categories/129/prepared-dishes-canned-food"
+      - {type: "offers_page", url: "https://www.delhaize.lu/fr/promos-de-la-semaine", render: true, scroll: true}
     selectors:
-      card: ".product, .product-item, .grid__item, article"
-      title: ".product__title, .product-title, h3, h2, .title"
-      brand: ""
-      qty: ".product__unit, .size, .quantity, .subtitle"
-      price: ".price, .product__price, .money, .amount"
-      promo: ".badge, .sale, .promo"
-      link: "a[href]"
-      image: "img"
-      ean: ""
-
-  - code: "ALDI"
-    name: "ALDI"
-    country: "LU"
-    base_url: "https://www.aldi.lu"
-    sources:
-      - type: "category"
-        url: "https://www.aldi.lu/fr/produits.html"
-        render: true
-        scroll: true
-      - type: "offers_page"
-        url: "https://www.aldi.lu/fr/nos-offres.html"
-        render: true
-        scroll: true
-    selectors:
-      card: ".product, .product-card, article, li"
-      title: "h3, .title, .product-title"
-      brand: ""
-      qty: ".size, .quantity, .subtitle"
-      price: ".price, .amount, .price__value, .price__amount"
-      promo: ".badge, .promo, .discount"
-      link: "a[href]"
-      image: "img"
-      ean: ""
-
-  - code: "CACTUS"
-    name: "Cactus"
-    country: "LU"
-    base_url: "https://www.cactus.lu"
-    sources:
-      - type: "offers_page"
-        url: "https://www.cactus.lu/fr/catalogues-et-promotions"
-        render: true
-        scroll: true
-    selectors:
-      card: ".views-row, .product, .product-card, li, article, .node--view-mode-teaser, .card"
-      title: "h3, .product-title, .title, .node__title, .card__title"
+      card: ".product, .promo-card, li, article, .card, .tile"
+      title: ".product-title, .title, h3, h2, .card__title, .tile__title"
       brand: ".brand, .product-brand"
-      qty: ".size, .quantity, .subtitle, .field--name-field-weight, .field--name-field-format"
-      price: ".field--name-field-price .field__item, .amount, .price, .card__price, [class*='price'] .amount, [class*='price'] .value"
-      promo: ".promotion, .promo, .badge, .flag--promo, [class*='promo'], [class*='discount']"
+      qty: ".size, .quantity, .subtitle, .card__subtitle"
+      price: ".promos-item-prix, .price, .current-price, .promo-price, .price__value, .price__amount, .card__price, [class*='price'] .amount, [class*='price'] .value"
+      promo: ".promo, .badge, .discount, .label--promo, [class*='promo'], [class*='discount']"
       link: "a[href]"
-      image: "img, picture img, .field--name-field-image img, .card img"
+      image: "img, picture img, .card img, .tile img"
       ean: ""
 
+  # === LIDL (entrar no folder) ===
   - code: "LIDL"
     name: "Lidl"
     country: "LU"
     base_url: "https://www.lidl.lu"
     sources:
-      - type: "offers_page"
-        url: "https://www.lidl.lu/c/folders/s10019808"
-        render: true
-        scroll: true
+      - {type: "offers_page", url: "https://www.lidl.lu/c/folders/s10019808", render: true, scroll: true, open_first_folder: true}
     selectors:
       card: ".teaser, .product-tile, article"
       title: ".title, h3, h2"
@@ -197,35 +80,32 @@ stores:
       image: "img"
       ean: ""
 
-  - code: "DELHAIZE"
-    name: "Delhaize"
+  # === ALDI ===
+  - code: "ALDI"
+    name: "ALDI"
     country: "LU"
-    base_url: "https://www.delhaize.lu"
+    base_url: "https://www.aldi.lu"
     sources:
-      - type: "offers_page"
-        url: "https://www.delhaize.lu/fr/promos-de-la-semaine"
-        render: true
-        scroll: true
+      - {type: "category", url: "https://www.aldi.lu/fr/produits.html", render: true, scroll: true}
+      - {type: "offers_page", url: "https://www.aldi.lu/fr/nos-offres.html", render: true, scroll: true}
     selectors:
-      card: ".product, .promo-card, li, article, .card, .tile"
-      title: ".product-title, .title, h3, h2, .card__title, .tile__title"
-      brand: ".brand, .product-brand"
-      qty: ".size, .quantity, .subtitle, .card__subtitle"
-      price: ".price, .current-price, .promo-price, .price__value, .price__amount, .card__price, [class*='price'] .amount, [class*='price'] .value"
-      promo: ".promo, .badge, .discount, .label--promo, [class*='promo'], [class*='discount']"
+      card: ".product, .product-card, article, li"
+      title: "h3, .title, .product-title"
+      brand: ""
+      qty: ".size, .quantity, .subtitle"
+      price: ".price, .amount, .price__value, .price__amount"
+      promo: ".badge, .promo, .discount"
       link: "a[href]"
-      image: "img, picture img, .card img, .tile img"
+      image: "img"
       ean: ""
 
+  # === COLRUYT (paginação) ===
   - code: "COLRUYT"
     name: "Colruyt"
     country: "LU"
     base_url: "https://www.colruyt.lu"
     sources:
-      - type: "category"
-        url: "https://www.colruyt.lu/fr-lu/produits?page=1"
-        render: true
-        scroll: true
+      - {type: "category", url: "https://www.colruyt.lu/fr-lu/produits?page=1", render: true, scroll: true, next_selector: "a[rel='next']", max_pages: 3}
     selectors:
       card: "article, .product, li"
       title: "h3, .title, .product-title"
@@ -237,15 +117,13 @@ stores:
       image: "img"
       ean: ""
 
+  # === MONOPRIX ===
   - code: "MONOPRIX"
     name: "Monoprix"
     country: "LU"
     base_url: "https://www.monoprix.lu"
     sources:
-      - type: "category"
-        url: "https://www.monoprix.lu/"
-        render: true
-        scroll: true
+      - {type: "category", url: "https://www.monoprix.lu/", render: true, scroll: true}
     selectors:
       card: ".product, .product-card, li, article"
       title: ".product-title, h3, h2, .title"
@@ -257,20 +135,49 @@ stores:
       image: "img"
       ean: ""
 
-  - code: "CARREFOUR_EXPRESS"
-    name: "Carrefour Express"
+  # === LUXCADDY (adiciona mais categorias se quiseres) ===
+  - code: "LUXCADDY"
+    name: "Luxcaddy"
     country: "LU"
-    base_url: "https://magasins.carrefour.be"
-    sources: []
+    base_url: "https://luxcaddy.lu"
+    sources:
+      - {type: "category", url: "https://luxcaddy.lu/en/categories/5762/groceries"}
+      - {type: "category", url: "https://luxcaddy.lu/en/categories/397/vegetables"}
+      - {type: "category", url: "https://luxcaddy.lu/en/categories/129/prepared-dishes-canned-food"}
+    selectors:
+      card: ".product, .product-item, .grid__item, article"
+      title: ".product__title, .product-title, h3, h2, .title"
+      brand: ""
+      qty: ".product__unit, .size, .quantity, .subtitle"
+      price: ".price, .product__price, .money, .amount"
+      promo: ".badge, .sale, .promo"
+      link: "a[href]"
+      image: "img"
+      ean: ""
 
-  - code: "NATURATA"
-    name: "Naturata"
+  # === CACTUS (folheto em IMAGEM → OCR) ===
+  - code: "CACTUS"
+    name: "Cactus"
     country: "LU"
-    base_url: "https://www.naturata.lu"
-    sources: []
+    base_url: "https://www.cactus.lu"
+    sources:
+      - type: "leaflet_images"
+        url: "https://www.cactus.lu/fr/catalogues-et-promotions"
+        render: true
+        scroll: true
+        image_selector: ".view-content img, .node__content img, .card img, img"
+    selectors:
+      card: ".views-row, .node--view-mode-teaser, .card, article, img"
+      title: "h3, .node__title, .card__title, .title"
+      brand: ".brand, .product-brand"
+      qty: ".size, .quantity, .field--name-field-weight, .field--name-field-format"
+      price: ""
+      promo: ".promotion, .promo, .badge, .flag--promo, [class*='promo'], [class*='discount']"
+      link: "a[href]"
+      image: "img, .field--name-field-image img, .card img"
+      ean: ""
 
-  - code: "ALAVITA"
-    name: "Alavita"
-    country: "LU"
-    base_url: "https://www.alavita.lu"
-    sources: []
+  # placeholders
+  - {code: "CARREFOUR_EXPRESS", name: "Carrefour Express", country: "LU", base_url: "https://magasins.carrefour.be", sources: []}
+  - {code: "NATURATA", name: "Naturata", country: "LU", base_url: "https://www.naturata.lu", sources: []}
+  - {code: "ALAVITA", name: "Alavita", country: "LU", base_url: "https://www.alavita.lu", sources: []}
