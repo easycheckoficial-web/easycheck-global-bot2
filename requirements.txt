@@ -1,9 +1,5 @@
-requests
-beautifulsoup4
-python-dotenv
-python-Levenshtein
-PyYAML
-pdfplumber
 playwright
-pytesseract
-Pillow
+beautifulsoup4
+lxml
+requests[socks]
+python-dotenv
