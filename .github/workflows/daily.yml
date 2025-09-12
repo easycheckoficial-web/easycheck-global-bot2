@@ -1,12 +1,12 @@
 name: Build CSVs daily
 
 permissions:
-  contents: write   # permite dar push dos CSVs
+  contents: write
 
 on:
   schedule:
-    - cron: "0 4 * * *"   # roda todos os dias 04:00 UTC (~06:00 LU no verão)
-  workflow_dispatch: {}   # também podes rodar manualmente pelo botão "Run workflow"
+    - cron: "0 4 * * *"   # 04:00 UTC (~06:00 LU no verão)
+  workflow_dispatch: {}
 
 jobs:
   run-bot:
@@ -29,6 +29,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install Playwright browsers
+        run: |
+          python -m playwright install --with-deps chromium
+
       - name: 1) Raspar lojas (gera ofertas_full.csv + produtos_primary.csv)
         run: python scrape_stores.py
 
@@ -49,12 +53,9 @@ jobs:
           git pull --rebase origin "$BRANCH_NAME" || true
           git push origin "HEAD:$BRANCH_NAME"
 
-      - name: Upload CSVs as artifacts (opcional, útil para baixar direto pelo Actions)
+      - name: Upload CSVs as artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: csvs
           path: out/*.csv
-                - name: Install Playwright browsers
-        run: |
-          python -m playwright install --with-deps chromium
