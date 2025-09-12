@@ -3,7 +3,6 @@ import re, unicodedata
 def parse_qty(text):
     if not text: return None, None
     t = text.lower().replace(",", ".")
-    # ex: 6x200 ml, 2 x 500 g
     m = re.search(r"(\d+(?:\.\d+)?)\s*[x×]\s*(\d+(?:\.\d+)?)\s*(kg|g|l|ml)", t)
     if m:
         n1, n2, u = float(m.group(1)), float(m.group(2)), m.group(3)
@@ -12,7 +11,6 @@ def parse_qty(text):
         if u == "kg": qty *= 1000
         if u == "l":  qty *= 1000
         return qty, base
-    # ex: 500 g, 1 kg, 1 L, 330 ml, 12 un
     m = re.search(r"(\d+(?:\.\d+)?)\s*(kg|g|l|ml|un|unid|unit)", t)
     if m:
         n, u = float(m.group(1)), m.group(2)
