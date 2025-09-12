@@ -5,3 +5,5 @@ python-Levenshtein
 PyYAML
 pdfplumber
 playwright
+pytesseract
+Pillow
