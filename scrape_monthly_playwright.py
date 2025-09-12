@@ -7,10 +7,9 @@ from utils import slugify, is_debug, now_iso
 OUT_DIR = Path("out"); OUT_DIR.mkdir(parents=True, exist_ok=True)
 DEBUG_DIR = OUT_DIR / "debug"; DEBUG_DIR.mkdir(parents=True, exist_ok=True)
 SHOT_DIR = OUT_DIR / "shots"; SHOT_DIR.mkdir(parents=True, exist_ok=True)
-
 OFERTAS_FULL = OUT_DIR / "ofertas_full.csv"
 
-# ── Config: categorias por loja (podes acrescentar)
+# Categorias por loja (podes ampliar depois)
 CATEGORIES = {
     "AUCHAN": [
         "https://www.auchan.lu/fr/epicerie-salee",
@@ -37,7 +36,10 @@ CATEGORIES = {
     ],
 }
 
-# Heurísticas JSON/DOM
+# Domínios que devem usar TOR (define no Actions via USE_TOR_FOR)
+USE_TOR_FOR = {d.strip().lower() for d in os.getenv("USE_TOR_FOR","").split(",") if d.strip()}
+
+# Heurísticas de extração
 NAME_KEYS  = {"name", "title", "product_name", "label"}
 PRICE_KEYS = {"price", "current_price", "amount", "value", "prix", "finalPrice"}
 SIZE_KEYS  = {"size", "quantity", "pack_size", "format"}
@@ -51,17 +53,14 @@ HEADERS = {
 }
 MONEY = re.compile(r"(\d+(?:[.,]\d{1,2}))")
 
-def save_debug(name: str, content: str|bytes):
+def save_debug(name: str, content: bytes|str):
     p = DEBUG_DIR / name
-    if isinstance(content, (bytes, bytearray)):
-        p.write_bytes(content)
-    else:
-        p.write_text(content, encoding="utf-8")
+    if isinstance(content, (bytes, bytearray)): p.write_bytes(content)
+    else: p.write_text(content, encoding="utf-8")
 
 def pick(d: dict, keys: set):
     for k in list(d.keys()):
-        if str(k).lower() in keys:
-            return d[k]
+        if str(k).lower() in keys: return d[k]
     return None
 
 def coerce_price(v):
@@ -81,24 +80,19 @@ def to_text(v):
     return str(v).strip()
 
 def walk_json(obj, found):
-    """Percorre JSON e coleta itens com nome+preço."""
     if isinstance(obj, dict):
-        name = pick(obj, NAME_KEYS)
-        price = pick(obj, PRICE_KEYS)
+        name = pick(obj, NAME_KEYS); price = pick(obj, PRICE_KEYS)
         if name is not None and price is not None:
-            size = pick(obj, SIZE_KEYS)
-            promo = pick(obj, PROMO_KEYS)
+            size = pick(obj, SIZE_KEYS); promo = pick(obj, PROMO_KEYS)
             found.append({
                 "name": to_text(name),
                 "price": coerce_price(price),
                 "size": to_text(size),
                 "is_promo": str(promo).lower() in {"true","1","yes","y"} if promo is not None else False
             })
-        for v in obj.values():
-            walk_json(v, found)
+        for v in obj.values(): walk_json(v, found)
     elif isinstance(obj, list):
-        for it in obj:
-            walk_json(it, found)
+        for it in obj: walk_json(it, found)
 
 async def scroll_to_bottom(page, step=1200, max_scrolls=50):
     last = 0
@@ -110,69 +104,122 @@ async def scroll_to_bottom(page, step=1200, max_scrolls=50):
         last = h
 
 async def load_more(page):
-    # tenta clicar em "ver mais"
     for _ in range(20):
-        btn = await page.query_selector("button:has-text('Plus'), button:has-text('Voir plus'), button:has-text('More'), a:has-text('Plus'), a:has-text('More')")
+        btn = await page.query_selector(
+            "button:has-text('Plus'), button:has-text('Voir plus'), "
+            "button:has-text('More'), a:has-text('Plus'), a:has-text('More')"
+        )
         if not btn: break
         try:
-            await btn.click()
-            await page.wait_for_timeout(1500)
-        except:
-            break
+            await btn.click(); await page.wait_for_timeout(1500)
+        except: break
+
+async def accept_cookies(page):
+    selectors = [
+        "#onetrust-accept-btn-handler","button#onetrust-accept-btn-handler",
+        "button:has-text('Accepter tout')","button:has-text('Tout accepter')",
+        "button:has-text('Accept All')","button:has-text('J’accepte')","button:has-text(\"J'accepte\")",
+        "[aria-label*='accept']","button.cm-btn--primary",
+        ".didomi-continue-without-agreeing","button:has-text('OK')",
+    ]
+    for sel in selectors:
+        el = await page.query_selector(sel)
+        if el:
+            try: await el.click(); await page.wait_for_timeout(400)
+            except: pass
+
+async def parse_ld_json(page):
+    items=[]
+    for h in await page.query_selector_all("script[type='application/ld+json']"):
+        try:
+            data = json.loads(await h.inner_text())
+            arr = data if isinstance(data, list) else [data]
+            for d in arr:
+                if isinstance(d, dict) and (d.get('@type')=='Product' or 'offers' in d):
+                    name = to_text(d.get('name','')); size = to_text(d.get('size') or d.get('sku') or '')
+                    price=None; offers = d.get('offers')
+                    if isinstance(offers, dict): price = coerce_price(offers.get('price'))
+                    elif isinstance(offers, list) and offers: price = coerce_price(offers[0].get('price'))
+                    if name: items.append({"name":name,"price":price,"size":size,"is_promo":False})
+        except: pass
+    return items
+
+def make_rows(extracted, store, url):
+    now = now_iso(); rows=[]
+    for it in extracted:
+        nm = it.get("name","").strip(); pr = it.get("price", None); sz = it.get("size","").strip()
+        if not nm: continue
+        uid = slugify(nm, sz)
+        rows.append({
+            "ProductUID": uid, "NomeProduto": nm, "Loja": store,
+            "Preco": pr if pr is not None else "", "Moeda": "EUR",
+            "PrecoUnidade": "","Unidade": "",
+            "IsPromo": "TRUE" if it.get("is_promo") else "FALSE",
+            "ValidadeDe": "","ValidadeAte": "",
+            "SourceURL": url, "FetchedAt": now
+        })
+    return rows
+
+def host_of(url: str) -> str:
+    try: return urlparse(url).netloc.lower()
+    except: return ""
+
+def proxy_for(url: str):
+    h = host_of(url)
+    for dom in USE_TOR_FOR:
+        if h.endswith(dom): return {"server": "socks5://127.0.0.1:9050"}
+    return None
 
 async def fetch_category(play, url: str, store: str):
     offers = []
+    proxy = proxy_for(url)
     browser = await play.chromium.launch(
         headless=True,
-        args=[
-            "--disable-blink-features=AutomationControlled",
-            "--no-sandbox",
-            "--disable-dev-shm-usage",
-        ],
+        args=["--disable-blink-features=AutomationControlled","--no-sandbox","--disable-dev-shm-usage"],
     )
-    context = await browser.new_context(extra_http_headers=HEADERS, locale="fr-LU")
+    context = await browser.new_context(
+        extra_http_headers=HEADERS, locale="fr-LU", timezone_id="Europe/Luxembourg", proxy=proxy,
+    )
     page = await context.new_page()
 
     collected_json = []
-
     async def on_response(resp: Response):
         try:
-            if resp.request.resource_type in {"xhr", "fetch"}:
-                ct = (resp.headers or {}).get("content-type","")
-                if "application/json" in ct or resp.url.endswith(".json"):
-                    data = await resp.json()
-                    collected_json.append((resp.url, data))
-                    # salva uma amostra
-                    sample = json.dumps(data)[:200000].encode("utf-8")
-                    save_debug(f"net_{store}_{slugify(resp.url)[:80]}.json", sample)
-        except Exception:
-            pass
-
+            if resp.request.resource_type in {"xhr","fetch"}:
+                body = await resp.text()
+                if body and (body.lstrip().startswith("{") or body.lstrip().startswith("[")):
+                    try:
+                        data = json.loads(body)
+                        collected_json.append((resp.url, data))
+                        if is_debug():
+                            sample = json.dumps(data)[:200000].encode("utf-8")
+                            save_debug(f"net_{store}_{slugify(resp.url)[:80]}.json", sample)
+                    except: pass
+        except: pass
     page.on("response", on_response)
 
     try:
         await page.goto(url, wait_until="domcontentloaded", timeout=90000)
-        await page.wait_for_timeout(1500)
-        await scroll_to_bottom(page)
-        await load_more(page)
-        await scroll_to_bottom(page)
+        await accept_cookies(page)
+        await page.wait_for_timeout(1200)
+        await scroll_to_bottom(page); await load_more(page); await scroll_to_bottom(page)
 
-        # screenshot pra verificar o que apareceu
-        try:
-            shot_path = SHOT_DIR / f"{store}_{slugify(url)[:80]}.png"
-            await page.screenshot(path=str(shot_path), full_page=True)
-        except:
-            pass
+        # screenshot
+        try: await page.screenshot(path=str(SHOT_DIR / f"{store}_{slugify(url)[:80]}.png"), full_page=True)
+        except: pass
 
-        # 1) via JSON interceptado
-        extracted = []
+        extracted=[]
+        # 1) JSON
         for u, data in collected_json:
-            tmp = []
-            walk_json(data, tmp)
-            if tmp:
-                extracted.extend(tmp)
-
-        # 2) fallback DOM
+            tmp=[]; walk_json(data, tmp)
+            if tmp: extracted.extend(tmp)
+        # 2) LD+JSON
+        if not extracted:
+            try:
+                ld = await parse_ld_json(page)
+                if ld: extracted.extend(ld)
+            except: pass
+        # 3) DOM
         if not extracted:
             cards = await page.query_selector_all(
                 ".product, .product-card, li.product-item, .product-grid__item, "
@@ -185,71 +232,47 @@ async def fetch_category(play, url: str, store: str):
                 )
                 price_el= await c.query_selector(
                     ".price, .product-price, .product__price, .price__amount, "
-                    "[data-test='product-price'], .mod-article-tile__price"
+                    "[data-test='product-price'], .mod-article-tile__price, [class*='price']"
                 )
                 size_el = await c.query_selector(
                     ".size, .product-size, .product__size, .subtitle, "
-                    "[data-test='product-subtitle'], .mod-article-tile__subtitle"
+                    "[data-test='product-subtitle'], .mod-article-tile__subtitle, [class*='size']"
                 )
                 name = (await name_el.inner_text()).strip() if name_el else ""
                 price_txt = (await price_el.inner_text()).strip() if price_el else ""
                 size = (await size_el.inner_text()).strip() if size_el else ""
-                price = None
-                m = re.search(r"(\d+(?:[.,]\d{1,2}))", price_txt.replace("\xa0"," ").replace(",","."))
-                if m:
-                    try: price = float(m.group(1))
-                    except: price = None
-                if name:
-                    extracted.append({"name": name, "price": price, "size": size, "is_promo": False})
+                price=None
+                if price_txt:
+                    m = re.search(r"(\d+(?:[.,]\d{1,2}))", price_txt.replace("\xa0"," ").replace(",",".")) 
+                    if m:
+                        try: price=float(m.group(1))
+                        except: price=None
+                if name: extracted.append({"name":name,"price":price,"size":size,"is_promo":False})
 
-        now = now_iso()
-        for it in extracted:
-            nm = it.get("name","").strip()
-            pr = it.get("price", None)
-            sz = it.get("size","").strip()
-            if not nm: continue
-            uid = slugify(nm, sz)
-            offers.append({
-                "ProductUID": uid,
-                "NomeProduto": nm,
-                "Loja": store,
-                "Preco": pr if pr is not None else "",
-                "Moeda": "EUR",
-                "PrecoUnidade": "",
-                "Unidade": "",
-                "IsPromo": "TRUE" if it.get("is_promo") else "FALSE",
-                "ValidadeDe": "",
-                "ValidadeAte": "",
-                "SourceURL": url,
-                "FetchedAt": now
-            })
-
-        # salva HTML da página final
         try:
             html = await page.content()
             save_debug(f"html_{store}_{slugify(url)[:80]}.html", html)
-        except:
-            pass
+        except: pass
+
+        offers = make_rows(extracted, store, url)
 
     except Exception as e:
         print(f"[{store}] erro em {url}: {e}")
     finally:
-        await context.close()
-        await browser.close()
+        await context.close(); await browser.close()
 
     return offers
 
 async def run_all():
-    all_offers = []
+    all_offers=[]
     async with async_playwright() as play:
         for store, urls in CATEGORIES.items():
             for url in urls:
-                print(f"[{store}] -> {url}")
-                off = await fetch_category(play, url, store)
-                print(f"[{store}] +{len(off)} linhas")
-                all_offers.extend(off)
+                print(f"[{store}] -> {url} {'[TOR]' if proxy_for(url) else ''}")
+                offs = await fetch_category(play, url, store)
+                print(f"[{store}] +{len(offs)}")
+                all_offers.extend(offs)
 
-    # escreve sempre o CSV (mesmo vazio)
     cols = ["ProductUID","NomeProduto","Loja","Preco","Moeda","PrecoUnidade","Unidade","IsPromo","ValidadeDe","ValidadeAte","SourceURL","FetchedAt"]
     with open(OFERTAS_FULL, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols); w.writeheader()
