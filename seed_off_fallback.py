@@ -41,8 +41,7 @@ def load_primary(path=PRIMARY):
     if not os.path.exists(path): return {}
     out={}
     with open(path, newline="", encoding="utf-8") as f:
-        for r in csv.DictReader(f):
-            out[r["UID"]] = r
+        for r in csv.DictReader(f): out[r["UID"]] = r
     return out
 
 def main():
@@ -50,7 +49,6 @@ def main():
     base = load_primary()
     seen = set(base.keys())
 
-    # completa catálogo com OFF: LU primeiro, depois BE/FR/DE
     countries = ["luxembourg","belgium","france","germany"]
     for c in countries:
         for page in range(1,3):
@@ -64,8 +62,7 @@ def main():
                 img  = (p.get("image_url") or "").strip()
                 scans= int(p.get("scans_n") or 0)
                 uid  = ean if ean else slugify(name, brand, qty)
-                if not uid or uid in seen or not name:
-                    continue
+                if not uid or uid in seen or not name: continue
                 rayon, sous = infer_rayon(name, brand, qty)
                 score = round(5 + math.log(scans+1), 3)
                 base[uid] = {
