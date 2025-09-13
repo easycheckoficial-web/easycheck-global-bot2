@@ -1,6 +1,6 @@
 import os, csv, json, asyncio, re
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 from playwright.async_api import async_playwright, Response
 from utils import slugify, is_debug, now_iso
 
@@ -25,21 +25,32 @@ CATEGORIES = {
     "DELHAIZE": [
         "https://www.delhaize.lu/fr/promos-de-la-semaine",
     ],
-    "LIDL": [
-        "https://www.lidl.lu/c/fr-LU/offres-de-la-semaine/c9504",
-    ],
+    # ALDI: abrir hub e navegar por TODAS as subcategorias
     "ALDI": [
         "https://www.aldi.lu/fr/produits.html",
+    ],
+    "LIDL": [
+        "https://www.lidl.lu/c/fr-LU/offres-de-la-semaine/c9504",
     ],
     "MONOPRIX": [
         "https://www.monoprix.lu/",
     ],
 }
 
-# Domínios que devem usar TOR (define no Actions via USE_TOR_FOR)
+# Env: TOR e escolha de browser por domínio (para Auchan/Colruyt/Delhaize)
 USE_TOR_FOR = {d.strip().lower() for d in os.getenv("USE_TOR_FOR","").split(",") if d.strip()}
 
-# Heurísticas de extração
+def parse_browser_map(s: str):
+    m={}
+    for pair in s.split(";"):
+        if "=" in pair:
+            d,b = pair.split("=",1)
+            m[d.strip().lower()] = b.strip().lower()
+    return m
+
+BROWSER_FOR = parse_browser_map(os.getenv("BROWSER_FOR",""))
+
+# Heurísticas
 NAME_KEYS  = {"name", "title", "product_name", "label"}
 PRICE_KEYS = {"price", "current_price", "amount", "value", "prix", "finalPrice"}
 SIZE_KEYS  = {"size", "quantity", "pack_size", "format"}
@@ -94,7 +105,7 @@ def walk_json(obj, found):
     elif isinstance(obj, list):
         for it in obj: walk_json(it, found)
 
-async def scroll_to_bottom(page, step=1200, max_scrolls=50):
+async def scroll_to_bottom(page, step=1200, max_scrolls=60):
     last = 0
     for _ in range(max_scrolls):
         await page.evaluate(f"window.scrollBy(0, {step});")
@@ -104,10 +115,12 @@ async def scroll_to_bottom(page, step=1200, max_scrolls=50):
         last = h
 
 async def load_more(page):
-    for _ in range(20):
+    # "Voir plus" / "Afficher plus" / "More"
+    for _ in range(30):
         btn = await page.query_selector(
             "button:has-text('Plus'), button:has-text('Voir plus'), "
-            "button:has-text('More'), a:has-text('Plus'), a:has-text('More')"
+            "button:has-text('Afficher plus'), button:has-text('More'), "
+            "a:has-text('Plus'), a:has-text('More'), a:has-text('Afficher plus')"
         )
         if not btn: break
         try:
@@ -115,6 +128,7 @@ async def load_more(page):
         except: break
 
 async def accept_cookies(page):
+    # 1) na página principal
     selectors = [
         "#onetrust-accept-btn-handler","button#onetrust-accept-btn-handler",
         "button:has-text('Accepter tout')","button:has-text('Tout accepter')",
@@ -127,6 +141,14 @@ async def accept_cookies(page):
         if el:
             try: await el.click(); await page.wait_for_timeout(400)
             except: pass
+    # 2) iframes (OneTrust/Didomi)
+    for frame in page.frames:
+        try:
+            el = await frame.query_selector("#onetrust-accept-btn-handler, button:has-text('Accepter tout'), button:has-text('Accept All')")
+            if el:
+                try: await el.click(); await page.wait_for_timeout(400)
+                except: pass
+        except: pass
 
 async def parse_ld_json(page):
     items=[]
@@ -170,15 +192,99 @@ def proxy_for(url: str):
         if h.endswith(dom): return {"server": "socks5://127.0.0.1:9050"}
     return None
 
+def browser_for(url: str):
+    h = host_of(url)
+    for dom, br in BROWSER_FOR.items():
+        if h.endswith(dom):
+            return br  # "chromium" | "firefox" | "webkit"
+    return "chromium"
+
+# ─────────────────────────────────────────────────────────────
+# ALDI — 1) recolhe subcategorias; 2) visita e extrai produtos
+# ─────────────────────────────────────────────────────────────
+async def aldi_collect_category_links(page, base_url: str) -> list[str]:
+    origin = f"{urlparse(base_url).scheme}://{urlparse(base_url).netloc}"
+    links = set()
+    anchors = await page.query_selector_all("a[href*='/fr/produits/']")
+    for a in anchors:
+        href = await a.get_attribute("href")
+        if not href: continue
+        if href.endswith("produits.html"):  # evita o hub
+            continue
+        url = urljoin(origin, href)
+        if "/fr/produits/" in url:
+            links.add(url)
+    # cartões de categoria
+    anchors2 = await page.query_selector_all(".mod-category-tile a, .category-tile a, .tile a")
+    for a in anchors2:
+        href = await a.get_attribute("href")
+        if not href: continue
+        if href.endswith("produits.html"): continue
+        url = urljoin(origin, href)
+        if "/fr/produits/" in url:
+            links.add(url)
+    return sorted(links)
+
+async def aldi_parse_category_page(context, url: str, store: str) -> list[dict]:
+    page = await context.new_page()
+    extracted=[]
+    try:
+        await page.goto(url, wait_until="domcontentloaded", timeout=90000)
+        await accept_cookies(page)
+        await page.wait_for_timeout(800)
+        await scroll_to_bottom(page); await load_more(page); await scroll_to_bottom(page)
+
+        # ld+json (se existir)
+        ld = await parse_ld_json(page)
+        if ld: extracted.extend(ld)
+
+        # DOM oficial do ALDI (SAP Commerce)
+        cards = await page.query_selector_all(".mod-article-tile, .product, .product-card, [data-test='product-tile']")
+        for c in cards:
+            name_el = await c.query_selector(".mod-article-tile__title, .product-title, .title, [data-test='product-title']")
+            price_el= await c.query_selector(".mod-article-tile__price, .price, [data-test='product-price'], [class*='price']")
+            size_el = await c.query_selector(".mod-article-tile__subtitle, .subtitle, .product-size, [data-test='product-subtitle']")
+            name = (await name_el.inner_text()).strip() if name_el else ""
+            price_txt = (await price_el.inner_text()).strip() if price_el else ""
+            size = (await size_el.inner_text()).strip() if size_el else ""
+            price=None
+            if price_txt:
+                m = re.search(r"(\d+(?:[.,]\d{1,2}))", price_txt.replace("\xa0"," ").replace(",",".")) 
+                if m:
+                    try: price=float(m.group(1))
+                    except: price=None
+            if name:
+                extracted.append({"name":name,"price":price,"size":size,"is_promo":False})
+
+        # debug da categoria
+        try:
+            await page.screenshot(path=str(SHOT_DIR / f"ALDI_{slugify(url)[:80]}.png"), full_page=True)
+            html = await page.content()
+            save_debug(f"html_ALDI_{slugify(url)[:80]}.html", html)
+        except: pass
+
+    except Exception as e:
+        print(f"[ALDI] erro em categoria {url}: {e}")
+    finally:
+        await page.close()
+
+    return make_rows(extracted, store, url)
+
+# ─────────────────────────────────────────────────────────────
+
 async def fetch_category(play, url: str, store: str):
     offers = []
     proxy = proxy_for(url)
-    browser = await play.chromium.launch(
+    br_name = browser_for(url)
+    browser_type = {"chromium": play.chromium, "firefox": play.firefox, "webkit": play.webkit}.get(br_name, play.chromium)
+
+    browser = await browser_type.launch(
         headless=True,
         args=["--disable-blink-features=AutomationControlled","--no-sandbox","--disable-dev-shm-usage"],
     )
     context = await browser.new_context(
         extra_http_headers=HEADERS, locale="fr-LU", timezone_id="Europe/Luxembourg", proxy=proxy,
+        viewport={"width": 1366, "height": 768}
     )
     page = await context.new_page()
 
@@ -199,17 +305,34 @@ async def fetch_category(play, url: str, store: str):
     page.on("response", on_response)
 
     try:
-        await page.goto(url, wait_until="domcontentloaded", timeout=90000)
+        await page.goto(url, wait_until="domcontentloaded", timeout=120000)
         await accept_cookies(page)
         await page.wait_for_timeout(1200)
         await scroll_to_bottom(page); await load_more(page); await scroll_to_bottom(page)
 
-        # screenshot
-        try: await page.screenshot(path=str(SHOT_DIR / f"{store}_{slugify(url)[:80]}.png"), full_page=True)
+        # ALDI hub: recolhe subcategorias e percorre cada uma
+        if store == "ALDI" and "/produits.html" in url:
+            subcats = await aldi_collect_category_links(page, url)
+            print(f"[ALDI] {len(subcats)} subcategorias encontradas")
+            for link in subcats:
+                rows = await aldi_parse_category_page(context, link, store)
+                offers.extend(rows)
+            # debug do hub
+            try:
+                await page.screenshot(path=str(SHOT_DIR / f"{store}_{slugify(url)[:80]}.png"), full_page=True)
+                html = await page.content()
+                save_debug(f"html_{store}_{slugify(url)[:80]}.html", html)
+            except: pass
+            await context.close(); await browser.close()
+            return offers
+
+        # screenshot (demais lojas)
+        try:
+            await page.screenshot(path=str(SHOT_DIR / f"{store}_{slugify(url)[:80]}.png"), full_page=True)
         except: pass
 
         extracted=[]
-        # 1) JSON
+        # 1) JSON capturado
         for u, data in collected_json:
             tmp=[]; walk_json(data, tmp)
             if tmp: extracted.extend(tmp)
@@ -219,7 +342,7 @@ async def fetch_category(play, url: str, store: str):
                 ld = await parse_ld_json(page)
                 if ld: extracted.extend(ld)
             except: pass
-        # 3) DOM
+        # 3) DOM genérico
         if not extracted:
             cards = await page.query_selector_all(
                 ".product, .product-card, li.product-item, .product-grid__item, "
@@ -254,7 +377,7 @@ async def fetch_category(play, url: str, store: str):
             save_debug(f"html_{store}_{slugify(url)[:80]}.html", html)
         except: pass
 
-        offers = make_rows(extracted, store, url)
+        offers.extend(make_rows(extracted, store, url))
 
     except Exception as e:
         print(f"[{store}] erro em {url}: {e}")
@@ -268,7 +391,9 @@ async def run_all():
     async with async_playwright() as play:
         for store, urls in CATEGORIES.items():
             for url in urls:
-                print(f"[{store}] -> {url} {'[TOR]' if proxy_for(url) else ''}")
+                tor = "[TOR]" if proxy_for(url) else ""
+                br  = browser_for(url)
+                print(f"[{store}] -> {url} {tor} ({br})")
                 offs = await fetch_category(play, url, store)
                 print(f"[{store}] +{len(offs)}")
                 all_offers.extend(offs)
@@ -278,6 +403,24 @@ async def run_all():
         w = csv.DictWriter(f, fieldnames=cols); w.writeheader()
         for r in all_offers: w.writerow(r)
     print(f"✅ ofertas_full.csv: {len(all_offers)} linhas")
+
+# helpers de proxy/browser/host
+def proxy_for(url: str):
+    h = host_of(url)
+    for dom in USE_TOR_FOR:
+        if h.endswith(dom): return {"server": "socks5://127.0.0.1:9050"}
+    return None
+
+def browser_for(url: str):
+    h = host_of(url)
+    for dom, br in BROWSER_FOR.items():
+        if h.endswith(dom):
+            return br  # "chromium" | "firefox" | "webkit"
+    return "chromium"
+
+def host_of(url: str) -> str:
+    try: return urlparse(url).netloc.lower()
+    except: return ""
 
 if __name__ == "__main__":
     asyncio.run(run_all())
