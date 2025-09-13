@@ -1,40 +1,309 @@
 ProductUID,NomeProduto,Loja,Preco,Moeda,PrecoUnidade,Unidade,IsPromo,ValidadeDe,ValidadeAte,SourceURL,FetchedAt
-epices-baies-roses,épices baies roses,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-graisse-pr-friture-vegetale,graisse pr friture végétale,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-margarine-cuire-et-rotir,margarine cuire et rôtir,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-margarine-cuire-rotir,margarine cuire&rôtir,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-couscous,couscous,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-farine-fluide-ble,farine fluide blé,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-farine-patisserie,farine pâtisserie,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-farine-pain-blanc,farine pain blanc,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-mix-pour-crepes,mix pour crêpes,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-fecule-pommes-de-terre,fécule pommes de terre,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-farine-patisserie-ble,farine pâtisserie blé,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-farine-ble-t110,farine blé T110,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-levure-seche-instant,levure seche instant,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-levure-instant,levure instant,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-fecule-mais,fécule maïs,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-liant-blanche,liant blanche,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-liant-brune,liant brune,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-liant-mais,liant maïs,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-poudre-lever-backin,poudre lever Backin,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-12T23:58:23.610931Z
-puree-en-flocons,Purée en flocons,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-fruit-n-fibre,Fruit'n Fibre,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-variety-minipacks-8pc,Variety Minipacks 8pc,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-pudding-powder-vanille,pudding powder vanille,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-pudding-caramel,pudding caramel,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-pudding-fraise,pudding fraise,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-pudding-vanille,pudding vanille,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-mousse-fouettee-sachets,mousse fouettée sachets,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-arome-amandes,arôme amandes,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-arome-vanille,arôme vanille,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-sucre-vanille,sucre vanille,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-sucre-vanille-bourbon,sucre vanille bourbon,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-riz-jasmin-thai,riz jasmin thaï,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-riz-basmati,riz basmati,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-riz-long-grain,riz long grain,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-riz-cuisson-rapide,riz cuisson rapide,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-riz-mediterraneo,riz mediterraneo,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-riz-complet,riz complet,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-riz-brown-complet,riz Brown complet,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
-spirelli,Spirelli,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-12T23:59:01.917568Z
+epices-baies-roses,épices baies roses,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+graisse-pr-friture-vegetale,graisse pr friture végétale,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+margarine-cuire-et-rotir,margarine cuire et rôtir,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+margarine-cuire-rotir,margarine cuire&rôtir,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+couscous,couscous,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+farine-fluide-ble,farine fluide blé,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+farine-patisserie,farine pâtisserie,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+farine-pain-blanc,farine pain blanc,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+mix-pour-crepes,mix pour crêpes,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+fecule-pommes-de-terre,fécule pommes de terre,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+farine-patisserie-ble,farine pâtisserie blé,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+farine-ble-t110,farine blé T110,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+levure-seche-instant,levure seche instant,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+levure-instant,levure instant,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+fecule-mais,fécule maïs,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+liant-blanche,liant blanche,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+liant-brune,liant brune,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+liant-mais,liant maïs,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+poudre-lever-backin,poudre lever Backin,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+puree-en-flocons,Purée en flocons,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+fruit-n-fibre,Fruit'n Fibre,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=1,2025-09-13T06:27:52.968437Z
+variety-minipacks-8pc,Variety Minipacks 8pc,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+pudding-powder-vanille,pudding powder vanille,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+pudding-caramel,pudding caramel,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+pudding-fraise,pudding fraise,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+pudding-vanille,pudding vanille,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+mousse-fouettee-sachets,mousse fouettée sachets,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+arome-amandes,arôme amandes,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+arome-vanille,arôme vanille,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+sucre-vanille,sucre vanille,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+sucre-vanille-bourbon,sucre vanille bourbon,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+riz-jasmin-thai,riz jasmin thaï,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+riz-basmati,riz basmati,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+riz-long-grain,riz long grain,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+riz-cuisson-rapide,riz cuisson rapide,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+riz-mediterraneo,riz mediterraneo,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+riz-complet,riz complet,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+riz-brown-complet,riz Brown complet,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+spirelli,Spirelli,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+spaghetti,spaghetti,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+macaroni-coupe,macaroni coupé,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+capellini-integral,capellini intégral,COLRUYT,,EUR,,,FALSE,,,https://www.colruyt.lu/fr-lu/produits?page=2,2025-09-13T06:28:32.287351Z
+biere-d-abbaye-blonde-8-pcs,"Bière d'abbaye blonde, 8 pcs",ALDI,8.75,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/assortiment.html,2025-09-13T06:30:04.089821Z
+biere-d-abbaye-brune-8-pcs,"Bière d'abbaye brune, 8 pcs",ALDI,9.65,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/assortiment.html,2025-09-13T06:30:04.089821Z
+biere-pils,Bière Pils,ALDI,14.29,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/assortiment.html,2025-09-13T06:30:04.089821Z
+biere-pils-24-pcs,"Bière pils, 24 pcs",ALDI,13.89,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+christmas,Christmas,ALDI,6.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+corona-extra-6-pcs,"Corona Extra, 6 pcs",ALDI,7.89,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/assortiment.html,2025-09-13T06:30:04.089821Z
+gambrinus,Gambrinus,ALDI,8.95,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+panache-10-pcs,"Panaché, 10 pcs",ALDI,3.69,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/assortiment.html,2025-09-13T06:30:04.089821Z
+pils,Pils,ALDI,1.27,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+pils-24-pcs,"Pils, 24 pcs",ALDI,17.19,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+pils-6-pcs,"Pils, 6 pcs",ALDI,7.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+pils-8-pcs,"Pils, 8 pcs",ALDI,10.09,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+pils-0-0,"Pils 0,0 %",ALDI,5.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+liquide-vaisselle,Liquide vaisselle,ALDI,0.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+filet-de-saumon-frais,Filet de saumon frais,ALDI,5.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+lessive-liquide,Lessive liquide,ALDI,2.89,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+baguette-multicereales,Baguette multicéréales,ALDI,0.65,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+eau-petillante-au-gout-citron-6-pcs,"Eau pétillante au goût citron, 6 pcs",ALDI,1.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+chorizo,Chorizo,ALDI,2.19,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+croquettes-pour-chat-2-kg,"Croquettes pour chat, 2 kg",ALDI,2.75,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+melange-de-laitue,Mélange de laitue,ALDI,1.35,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+creme-entiere,Crème entière,ALDI,1.15,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+crackers-bio,Crackers bio,ALDI,1.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+pruneaux,Pruneaux,ALDI,1.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+saucisses-viennoises,Saucisses viennoises,ALDI,0.89,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+thon-au-naturel,Thon au naturel,ALDI,1.15,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+noix-de-cajou,Noix de cajou,ALDI,2.59,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+ananas-au-jus-pack-de-3,"Ananas au jus, pack de 3",ALDI,2.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+anchois,Anchois,ALDI,2.25,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+bami-goreng-ou-nasi-goreng,Bami goreng ou nasi goreng,ALDI,3.85,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+barres-de-chocolat-300-g,"Barres de chocolat, 300 g",ALDI,2.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+batonnets-glaces-star-selection,Bâtonnets glacés Star Selection,ALDI,2.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+biscuits,Biscuits,ALDI,1.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+biscuits-de-l-etudiant,Biscuits de l'étudiant,ALDI,2.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+blocs-w-c-liquides,Blocs W.-C. liquides,ALDI,1.39,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+brie,Brie,ALDI,1.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+brut,Brut,ALDI,3.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+cafe-soluble,Café soluble,ALDI,2.39,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+cafe-soluble-cappuccino,Café soluble cappuccino,ALDI,4.29,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+capsules-de-cafe,Capsules de café,ALDI,2.89,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+carottes,Carottes,ALDI,1.19,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+chipeez,Chipeez,ALDI,1.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+chocolat,Chocolat,ALDI,2.19,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+chourico-corrente,Chouriço corrente,ALDI,1.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+confiture-de-myrtilles,Confiture de myrtilles,ALDI,2.19,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+cotons-tiges-bio-300-pcs,"Cotons-tiges bio, 300 pcs",ALDI,0.75,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+couque-aux-noix-de-pecan,Couque aux noix de pécan,ALDI,1.58,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+creme-legere,Crème légère,ALDI,0.85,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+culottes-d-incontinence-m-14-pcs,"Culottes d'incontinence M, 14 pcs",ALDI,7.89,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+demi-peches,Demi-pêches,ALDI,1.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+dentifrice,Dentifrice,ALDI,0.69,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+dessert-au-babeurre,Dessert au babeurre,ALDI,1.09,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+disques-d-ouate-140-pcs,"Disques d'ouate, 140 pcs",ALDI,0.59,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+eau-de-source,Eau de source,ALDI,0.2,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+eclairettes,Éclairettes,ALDI,3.29,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+emmental-rape,Emmental râpé,ALDI,3.39,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+escalope-de-poulet-4-pcs,"Escalope de poulet, 4 pcs",ALDI,6.09,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+feuilles-de-lasagne,Feuilles de lasagne,ALDI,1.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+filet-de-poisson-en-sauce,Filet de poisson en sauce,ALDI,4.39,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+fines-galettes-au-beurre-6-pcs,"Fines galettes au beurre, 6 pcs",ALDI,1.65,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+fromage-belge-en-tranches,Fromage belge en tranches,ALDI,3.19,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+fromage-bleu,Fromage bleu,ALDI,2.09,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+fromage-fondu,Fromage fondu,ALDI,2.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+fromage-fondu-a-l-emmental,Fromage fondu à l'emmental,ALDI,1.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+fromage-rape-a-gratiner,Fromage râpé à gratiner,ALDI,2.65,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+fromage-rape-pour-spaghetti,Fromage râpé pour spaghetti,ALDI,2.59,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+frosted-flakes,Frosted flakes,ALDI,2.39,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+fusilli,Fusilli,ALDI,0.59,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+gaufres-au-sucre-au-chocolat,Gaufres au sucre au chocolat,ALDI,2.09,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+gaufres-vanille-au-cacao,Gaufres vanille au cacao,ALDI,1.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+grenadine,Grenadine,ALDI,0.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+hachis-porc-buf-prepare,Hachis porc/bœuf préparé,ALDI,4.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/prix-reduit.html,2025-09-13T06:30:14.988095Z
+bianco-delle-venezie-igt,Bianco delle Venezie IGT,ALDI,2.77,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+vigne-vecchie-ballaturi,Vigne Vecchie ‘Ballaturi’,ALDI,9.41,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+medoc-cru-bourgeois-chateau-le-bourdieu,Médoc Cru Bourgeois 'Château Le Bourdieu',ALDI,7.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+principaute-dorange-igp,Principauté d’Orange IGP,ALDI,5.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+grande-alberone-primitivo-igt-puglia,Grande Alberone Primitivo IGT Puglia,ALDI,6.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+tempranillo-garnacha-el-mojon,Tempranillo-garnacha 'El Mojón',ALDI,5.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+prosecco-rose-grande-alberone-doc,Prosecco rosé Grande Alberone DOC,ALDI,6.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+vin-rose-sicilien,Vin rosé sicilien,ALDI,4.29,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+prosecco-ballaturi,Prosecco 'Ballaturi',ALDI,6.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+rose-bio-esteban,Rosé bio 'Esteban',ALDI,4.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+vin-rouge-bio-esteban,Vin rouge bio 'Esteban',ALDI,4.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+vin-blanc-valgrande,Vin blanc Valgrande,ALDI,7.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+melange-de-noix-grillees,Mélange de noix grillées,ALDI,3.29,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+grana-padano-en-bloc,Grana Padano en bloc,ALDI,3.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+huile-de-friture-premium,Huile de friture premium,ALDI,5.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+beurre-de-cacahuetes,Beurre de cacahuètes,ALDI,2.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+boisson-proteinee,Boisson protéinée,ALDI,1.59,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+crunchies-poulet-dinde-10-pcs,"Crunchies poulet-dinde, 10 pcs",ALDI,5.59,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+eau-minerale,Eau minérale,ALDI,2.89,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+fromage-frais-maigre-belge,Fromage frais maigre belge,ALDI,0.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+guacamole,Guacamole,ALDI,2.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+minibarres-de-chocolat-350-g,"Minibarres de chocolat, 350 g",ALDI,2.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+mozzarella-rapee,Mozzarella râpée,ALDI,2.39,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+yaourt-nature-a-la-grecque-10,Yaourt nature à la grecque 10 %,ALDI,1.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+couches-maxi-4-80-pcs,"Couches maxi 4, 80 pcs",ALDI,9.59,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+essuie-tout-3-epaisseurs-pack-de-4-64-feuilles,"Essuie-tout, 3 épaisseurs, pack de 4, 64 feuilles",ALDI,2.89,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+essuie-tout-maxi-pack-de-4,"Essuie-tout maxi, pack de 4",ALDI,2.59,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+parfum-de-linge-en-perles,Parfum de linge en perles,ALDI,2.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-couronnes.html,2025-09-13T06:30:42.210477Z
+elbling-aop,Elbling AOP,ALDI,4.15,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+auxerrois-aop,Auxerrois AOP,ALDI,4.85,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+pinot-gris-aop,Pinot gris AOP,ALDI,6.39,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+eau-de-vie-poire,Eau de vie poire,ALDI,11.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+eau-de-vie-pomme,Eau de vie pomme,ALDI,11.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+eau-de-vie-kirsch,Eau de vie kirsch,ALDI,13.87,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+eau-de-vie-quetsch,Eau de vie quetsch,ALDI,13.87,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+eau-de-vie-mirabelle,Eau de vie mirabelle,ALDI,15.89,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+pom-s,Pom's,ALDI,1.89,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+viva,Viva,ALDI,0.6,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+blue,Blue,ALDI,0.75,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+farine-de-ble,Farine de blé,ALDI,1.45,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+beurre-rose,Beurre Rose,ALDI,6.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+kefir,Kefir,ALDI,1.09,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+fromage-frais-maigre,Fromage frais maigre,ALDI,3.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+kachkeis-nature,Kachkéis nature,ALDI,3.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+kachkeis-aux-herbes,Kachkéis aux herbes,ALDI,3.55,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+fromage-frais-a-la-creme,Fromage frais à la crème,ALDI,4.09,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+cottage-cheese,Cottage cheese,ALDI,4.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+yaourts-aux-fruits-8-pcs,"Yaourts aux fruits, 8 pcs",ALDI,6.39,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+lait-chocolate,Lait chocolaté,ALDI,1.35,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+lait-demi-ecreme,Lait demi-écrémé,ALDI,1.29,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+lait-entier,Lait entier,ALDI,8.34,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+lait-sans-lactose,Lait sans lactose,ALDI,1.59,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+lait-demi-ecreme-frais,Lait demi-écrémé frais,ALDI,1.65,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+lait-entier-frais,Lait entier frais,ALDI,1.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+lait-fermente,Lait fermenté,ALDI,1.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+creme-liquide,Crème liquide,ALDI,2.09,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+creme-epaisse,Crème épaisse,ALDI,2.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+baurebrout,Baurebrout,ALDI,2.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+pain-bucheron-blanc-bio,Pain bûcheron blanc bio,ALDI,2.69,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+pain-platine,Pain platine,ALDI,2.89,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+pain-kraftkorn,Pain Kraftkorn,ALDI,3.09,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+sechskorn,Sechskorn,ALDI,3.09,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+pain-bio-bucheron-maxi-grains,Pain bio bûcheron maxi grains,ALDI,3.09,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+cramique,Cramique,ALDI,4.59,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+pain-toast,Pain toast,ALDI,4.59,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+steaks-haches-maigres-2-pcs,"Steaks hachés maigres, 2 pcs",ALDI,4.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+hamburgers-de-buf-2-pcs,"Hamburgers de bœuf, 2 pcs",ALDI,3.89,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+hache-de-boeuf-prepare,Haché de boeuf préparé,ALDI,5.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+americain-nature,Américain nature,ALDI,6.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+carbonnade-de-buf,Carbonnade de bœuf,ALDI,6.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+chateaubriand-2-pcs,"Chateaubriand, 2 pcs",ALDI,8.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+steaks-a-la-minute-4-pcs,"Steaks à la minute, 4 pcs",ALDI,7.59,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+rumsteak,Rumsteak,ALDI,8.95,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+steaks-peles-4-pcs,"Steaks pelés, 4 pcs",ALDI,9.59,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+faux-filet-de-buf,Faux-filet de bœuf,ALDI,8.69,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+salami-luxembourgeois,Salami luxembourgeois,ALDI,3.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+salami-luxembourgeois-au-poivre,Salami luxembourgeois au poivre,ALDI,3.59,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+saucisson-au-jambon,Saucisson au jambon,ALDI,3.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+jambon-mosellan-cuit,Jambon mosellan cuit,ALDI,4.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+grillwurst-4-pcs,"Grillwurst, 4 pcs",ALDI,5.19,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+saucisses-de-vienne-4-pcs,"Saucisses de Vienne, 4 pcs",ALDI,4.59,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+demi-lyoner,Demi Lyoner,ALDI,4.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+saucisse-luxembourgeoise,Saucisse luxembourgeoise,ALDI,6.45,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+mettwurst-4-pcs,"Mettwurst, 4 pcs",ALDI,7.45,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+stollen-piccolo,Stollen Piccolo,ALDI,4.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+moutarde,Moutarde,ALDI,2.09,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+mayonnaise-au-citron,Mayonnaise au citron,ALDI,3.85,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+chips-au-sel-de-guerande,Chips au sel de Guérande,ALDI,2.75,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+spaghetti-n-5,Spaghetti n° 5,ALDI,6.15,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+penne,Penne,ALDI,2.15,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+spatzle,Spätzle,ALDI,2.39,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/qualite-luxembourgeoise.html,2025-09-13T06:32:32.848092Z
+selecao-especial-vinho-regional-lisboa,Seleçao Especial Vinho Regional Lisboa,ALDI,2.39,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+vinho-tinto-doc-douro,Vinho Tinto DOC Douro,ALDI,4.39,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+vinho-tinto-touriga-nacional,Vinho Tinto Touriga Nacional,ALDI,2.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+vinho-regional-alentejano,Vinho regional Alentejano,ALDI,3.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+vinho-tinto-douro-reserva,Vinho Tinto Douro Reserva,ALDI,3.39,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+vinho-tinto-doc-dao,Vinho Tinto DOC Dão,ALDI,3.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+vinho-tinto-doc-alentejo,Vinho Tinto DOC Alentejo,ALDI,2.19,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+vinho-do-porto-tawny,Vinho do Porto Tawny,ALDI,4.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+douro-doc-graca-28,Douro DOC 'Graça 28',ALDI,5.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+vinho-tinto-colheita-selecionada,Vinho Tinto Colheita Selecionada,ALDI,5.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+ruby-porto,Ruby Porto,ALDI,3.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+tawny-porto,Tawny Porto,ALDI,4.45,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+porto-blanc,Porto blanc,ALDI,5.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+vinho-rose,Vinho rosé,ALDI,2.39,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+vinho-verde-doc-rose,Vinho verde DOC Rosé,ALDI,2.69,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+rose,Rosé,ALDI,3.29,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+vinho-branco-doc-alentejo,Vinho Branco DOC Alentejo,ALDI,2.75,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+vinho-verde,Vinho Verde,ALDI,3.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+vinho-verde-moncao-e-melgaco,Vinho Verde Monção e Melgaço,ALDI,4.59,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+vinho-verde-alvarinho,Vinho Verde Alvarinho,ALDI,4.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+orange-6-pcs,"Orange, 6 pcs",ALDI,3.55,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+orange,Orange,ALDI,1.35,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+ananas,Ananas,ALDI,1.35,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+jus-d-orange,Jus d'orange,ALDI,1.69,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+jus-de-peche,Jus de pêche,ALDI,1.45,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+jus-de-poire,Jus de poire,ALDI,1.39,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+jus-de-mangue,Jus de mangue,ALDI,1.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+jus-tutti-frutti,Jus tutti frutti,ALDI,1.65,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+vital-mangue-et-orange,Vital mangue et orange,ALDI,1.45,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+fruits-rouges,Fruits rouges,ALDI,1.59,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+um-bongo,Um Bongo,ALDI,2.39,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+aqtivus,aQtivus,ALDI,2.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+qharacter,Qharacter,ALDI,2.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+qalidus,Qalidus,ALDI,2.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+epiq,epiQ,ALDI,2.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+expresso-bar,Expresso Bar,ALDI,9.45,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+petit-pain-au-seigle,Petit pain au seigle,ALDI,0.39,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+petit-pain-muesli,Petit pain muesli,ALDI,0.39,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+pain-a-la-viande-de-porc,Pain à la viande de porc,ALDI,1.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+pain-mais,Pain maïs,ALDI,1.19,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+croissant-complet,Croissant complet,ALDI,0.85,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+croissant-brioche,Croissant brioché,ALDI,0.79,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+croissant-brioche-chocolat,Croissant brioché chocolat,ALDI,0.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+pastel-de-nata,Pastel de nata,ALDI,2.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+pao-de-deus,Pão de Deus,ALDI,0.89,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+bolo-de-arroz,Bolo de arroz,ALDI,0.89,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+feuillete-jambon-fromage,Feuilleté jambon fromage,ALDI,0.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+tartelette-aux-amandes,Tartelette aux amandes,ALDI,1.09,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+biscuits-linguas-de-veado,"Biscuits ""Línguas de Veado""",ALDI,1.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+yaourt-liquide,Yaourt liquide,ALDI,1.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+lait-chocolate-4-pcs,"Lait chocolaté, 4 pcs",ALDI,2.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+fromage-en-tranches,Fromage en tranches,ALDI,3.19,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+fromage-a-pate-dure,Fromage à pâte dure,ALDI,5.29,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+fromage-a-pate-mi-molle,Fromage à pâte mi-molle,ALDI,6.69,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+milhafre-queijo-acoriano-fatias,Milhafre Queijo Acoriano fatias,ALDI,3.19,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+queijo-de-pastagem,Queijo de pastagem,ALDI,3.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+queijo-prato-amanteigado,Queijo Prato Amanteigado,ALDI,5.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+thon-a-l-huile-vegetale,Thon à l'huile végétale,ALDI,1.55,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+thon-a-huile-d-olive,Thon à huile d'olive,ALDI,1.69,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+thon-nature,Thon nature,ALDI,1.89,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+morue-a-l-huile-d-olive,Morue à l'huile d'olive,ALDI,3.29,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+miettes-de-morue,Miettes de morue,ALDI,5.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+posta-de-pescada,Posta de pescada,ALDI,4.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+morue-emiettee,Morue émiettée,ALDI,6.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+lombos-de-bacalhau,Lombos de Bacalhau,ALDI,7.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+filet-de-morue,Filet de morue,ALDI,8.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+darne-de-perche-du-nil,Darne de perche du Nil,ALDI,7.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+morceaux-de-morue-salee-sechee,Morceaux de morue salée séchée,ALDI,14.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+poulpe,Poulpe,ALDI,21.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+seiches,Seiches,ALDI,9.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+calamars,Calamars,ALDI,7.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+rissois-de-camarao,Rissóis de Camarão,ALDI,2.29,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+pasteis-de-bacalhau,Pastéis de bacalhau,ALDI,2.85,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+muslitos-do-mar,Muslitos do mar,ALDI,2.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+paloco-desfiado,Paloco desfiado,ALDI,4.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+posta-de-maruca,Posta de Maruca,ALDI,13.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+postas-de-bacalhau-tradicional,Postas de bacalhau tradicional,ALDI,9.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+tentaculos-de-pota,Tentaculos de Pota,ALDI,5.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+linguica-picante,Linguiça picante,ALDI,0.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+morcela-ou-farinheira,Morcela ou Farinheira,ALDI,1.35,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+chourica-de-lamego,Chouriça de Lamego,ALDI,1.69,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+chourico-extra-ou-extra-picante,Chouriço extra ou extra picante,ALDI,1.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+rissois-de-carne,Rissóis de carne,ALDI,2.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+jambon-cru,Jambon cru,ALDI,6.29,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+presunto-fatias-finissimas,Presunto fatias finíssimas,ALDI,2.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+riz-long-grain-agulha,Riz long grain Agulha,ALDI,1.69,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+haricots-blancs,Haricots blancs,ALDI,0.99,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+pois-chiches,Pois chiches,ALDI,0.85,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+haricots-catarino,Haricots catarino,ALDI,2.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+haricots-rouges,Haricots rouges,ALDI,2.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+arroz-extra-carolino,Arroz extra Carolino,ALDI,1.69,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+gelee-de-coing,Gelée de coing,ALDI,1.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+pates-d-assaisonnement,Pâtes d'assaisonnement,ALDI,0.95,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+pommes-de-terre-frites-palha,Pommes de terre frites Palha,ALDI,1.55,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+huile-vegetale,Huile Végétale,ALDI,2.45,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+huile-d-olive,Huile d'olive,ALDI,7.89,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+farine-pour-gateaux,Farine pour gâteaux,ALDI,1.45,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+gelatine-aux-fraises,Gélatine aux fraises,ALDI,1.15,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+haricots-noirs,Haricots noirs,ALDI,1.29,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+haricots-bruns,Haricots bruns,ALDI,1.09,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+haricots-oeil-noir,Haricots oeil noir,ALDI,1.19,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+pickles,Pickles,ALDI,1.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
+pate-de-thon-ou-sardine,Pâté de thon ou sardine,ALDI,1.49,EUR,,,FALSE,,,https://www.aldi.lu/fr/produits/produits-portugais.html,2025-09-13T06:32:06.996065Z
